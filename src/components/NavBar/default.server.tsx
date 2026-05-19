@@ -47,15 +47,16 @@ jahiaComponent(
         />
         <nav className={classes.nav} role="navigation" aria-label={navAriaLabel}>
           <div className={classes.navContainer}>
-            {/* Home Link (Level 0) - Always visible on the left */}
+            {/* Eure-et-Loir logo + home link */}
             <a
               href={homeUrl}
               className={classes.homeLink}
               aria-label={homeAriaLabel}
               aria-current={isHomePage ? "page" : undefined}
             >
-              <HomeIcon width="20px" height="20px" />
-              <span className={classes.homeLinkText}>{homeText}</span>
+              {/* Circular EL logo badge */}
+              <span className={classes.logoCircle} aria-hidden="true">EL</span>
+              <span className={classes.homeLinkText}>Eurélintranet</span>
             </a>
 
             {/* Mobile Menu Toggle */}

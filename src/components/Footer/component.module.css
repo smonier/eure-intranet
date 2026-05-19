@@ -1,20 +1,33 @@
 .footer {
-    padding: 4rem 1rem;
-    color: #fff;
-    background: linear-gradient(to bottom, #024, #000);
+    padding: 3rem 1.5rem 2rem;
+    color: rgba(255,255,255,0.85);
+    background: linear-gradient(to bottom, #1C3F6E, #0d1f37);
 
     > nav {
         display: flex;
         justify-content: center;
-        gap: 1rem;
+        gap: 1.5rem;
         margin-block: 1rem;
+        flex-wrap: wrap;
     }
 
     > p {
         text-align: center;
+        font-size: 0.85rem;
+        color: rgba(255,255,255,0.5);
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        padding-top: 1.5rem;
     }
 
     a {
-        color: inherit;
+        color: rgba(255,255,255,0.75);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.15s;
+    }
+
+    a:hover {
+        color: #F4C430;
     }
 }

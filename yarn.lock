@@ -1736,40 +1736,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"employee-portal@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "employee-portal@workspace:."
-  dependencies:
-    "@emotion/react": "npm:^11.14.0"
-    "@emotion/styled": "npm:^11.14.1"
-    "@eslint-react/eslint-plugin": "npm:^1.49.0"
-    "@eslint/compat": "npm:^1.2.9"
-    "@eslint/js": "npm:^9.26.0"
-    "@jahia/javascript-modules-library": "npm:^1.0.1"
-    "@jahia/vite-plugin": "npm:^1.0.1"
-    "@types/canvas-confetti": "npm:^1.9.0"
-    "@types/node": "npm:^24.5.2"
-    "@types/react": "npm:^19.1.2"
-    "@types/react-dom": "npm:^19"
-    canvas-confetti: "npm:^1.9.3"
-    clsx: "npm:^2.1.1"
-    cross-env: "npm:^10.0.0"
-    eslint: "npm:^9.26.0"
-    globals: "npm:^16.0.0"
-    i18next: "npm:^25.0.2"
-    lucide-react: "npm:^0.548.0"
-    modern-normalize: "npm:^3.0.1"
-    prettier: "npm:^3.5.3"
-    react: "npm:^19.1.0"
-    react-dom: "npm:^19.1.1"
-    react-i18next: "npm:^15.5.1"
-    typescript: "npm:^5.8.3"
-    typescript-eslint: "npm:^8.31.1"
-    typescript-plugin-css-modules: "npm:^5.1.0"
-    vite: "npm:^7.0.0"
-  languageName: unknown
-  linkType: soft
-
 "encoding@npm:^0.1.13":
   version: 0.1.13
   resolution: "encoding@npm:0.1.13"
@@ -2203,6 +2169,40 @@ __metadata:
   checksum: 10c0/9a2fe69a41bfdade834ba7c42de4723c97ec776e40656919c62cbd13607c45e127a003f05f724a1ea55e5029a4cf2de444b13009f2af71271e42d93a637137c7
   languageName: node
   linkType: hard
+
+"eure-intranet@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "eure-intranet@workspace:."
+  dependencies:
+    "@emotion/react": "npm:^11.14.0"
+    "@emotion/styled": "npm:^11.14.1"
+    "@eslint-react/eslint-plugin": "npm:^1.49.0"
+    "@eslint/compat": "npm:^1.2.9"
+    "@eslint/js": "npm:^9.26.0"
+    "@jahia/javascript-modules-library": "npm:^1.0.1"
+    "@jahia/vite-plugin": "npm:^1.0.1"
+    "@types/canvas-confetti": "npm:^1.9.0"
+    "@types/node": "npm:^24.5.2"
+    "@types/react": "npm:^19.1.2"
+    "@types/react-dom": "npm:^19"
+    canvas-confetti: "npm:^1.9.3"
+    clsx: "npm:^2.1.1"
+    cross-env: "npm:^10.0.0"
+    eslint: "npm:^9.26.0"
+    globals: "npm:^16.0.0"
+    i18next: "npm:^25.0.2"
+    lucide-react: "npm:^0.548.0"
+    modern-normalize: "npm:^3.0.1"
+    prettier: "npm:^3.5.3"
+    react: "npm:^19.1.0"
+    react-dom: "npm:^19.1.1"
+    react-i18next: "npm:^15.5.1"
+    typescript: "npm:^5.8.3"
+    typescript-eslint: "npm:^8.31.1"
+    typescript-plugin-css-modules: "npm:^5.1.0"
+    vite: "npm:^7.0.0"
+  languageName: unknown
+  linkType: soft
 
 "exponential-backoff@npm:^3.1.1":
   version: 3.1.3

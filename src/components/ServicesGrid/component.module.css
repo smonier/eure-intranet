@@ -1,0 +1,37 @@
+.section {
+  padding: 0.5rem 0 1rem;
+}
+
+.heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1C3F6E;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-left: 4px solid #F4C430;
+  padding-left: 0.75rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 4), 1fr);
+  gap: 1rem;
+}
+
+/* Edit mode: show at least 1 column so the area drop target is visible */
+.grid[data-edit] {
+  min-height: 80px;
+}
+
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 380px) {
+  .grid { grid-template-columns: 1fr; }
+}

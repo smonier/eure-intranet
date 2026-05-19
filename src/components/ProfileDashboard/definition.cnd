@@ -1,0 +1,5 @@
+[ euint:profileDashboard ] > jnt:content, euimix:component
+ - jcr:title (string) i18n
+ - eui:subtitle (string) i18n
+ - eui:defaultProfile (string) = 'terrain' < 'terrain', 'rh', 'com', 'encadrant'
+ - eui:showPersonaSwitcher (boolean) = true

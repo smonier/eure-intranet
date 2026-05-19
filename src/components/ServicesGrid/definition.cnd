@@ -1,0 +1,5 @@
+[ euint:servicesGrid ] > jnt:content, euimix:component
+ orderable
+ + * (euint:tileLink) = euint:tileLink
+ - jcr:title (string) i18n
+ - eui:columns (long) = 4 < 2, 3, 4, 6

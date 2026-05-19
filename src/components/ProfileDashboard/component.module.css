@@ -1,0 +1,169 @@
+.dashboard {
+  background: #f4f6fa;
+  border-radius: 0 0 16px 16px;
+}
+
+/* ─── Header ─────────────────────────────── */
+.header {
+  background: linear-gradient(135deg, #1C3F6E 0%, #0d1f37 100%);
+  color: #fff;
+  padding: 1.5rem 0;
+}
+
+.headerInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Greeting ───────────────────────────── */
+.greetingBlock {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  flex-shrink: 0;
+  border: 3px solid rgba(255,255,255,0.3);
+}
+
+.greeting {
+  font-size: 1.125rem;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.greeting strong {
+  color: #F4C430;
+}
+
+.role {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.15rem;
+}
+
+/* ─── Profile switcher ───────────────────── */
+.switcherWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.switcherLabel {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.profileTabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.profileTab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem 0.4rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.1);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.18s ease;
+}
+
+.profileTab:hover {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.profileTabActive {
+  background: rgba(244, 196, 48, 0.2);
+  border-color: #F4C430;
+  color: #F4C430;
+}
+
+.tabAvatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.tabLabel {
+  white-space: nowrap;
+}
+
+/* ─── Content area ───────────────────────── */
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* ─── Mobile ─────────────────────────────── */
+@media (max-width: 768px) {
+  .headerInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .switcherWrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profileTabs {
+    width: 100%;
+  }
+
+  .profileTab {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .tabLabel {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .greeting {
+    font-size: 1rem;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+  }
+}
