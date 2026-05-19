@@ -6,7 +6,7 @@ import type { Props } from "./types.js";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:quickLinkList",
+    nodeType: "euint:quickLinkList",
     displayName: "Quick Link List",
   },
   (props: Props) => {

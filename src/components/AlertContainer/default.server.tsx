@@ -8,7 +8,7 @@ import styles from "./component.module.css";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:alertContainer",
+    nodeType: "euint:alertContainer",
     name: "default",
     displayName: "Alert Container",
   },

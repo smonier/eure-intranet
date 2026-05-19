@@ -14,7 +14,7 @@ type Props = {
 
 jahiaComponent(
   {
-    nodeType: "jempnt:login",
+    nodeType: "euint:login",
     name: "default",
     displayName: "Login",
     componentType: "view",

@@ -11,12 +11,41 @@ import type { JCRNodeWrapper } from "org.jahia.services.content";
 import "modern-normalize/modern-normalize.css";
 import "./global.css";
 
+// ============================================================================
+// Types
+// ============================================================================
+
 interface LayoutProps {
   title?: string;
   head?: ReactNode;
   children: ReactNode;
 }
 
+interface HtmlHeadProps {
+  title?: string;
+  children?: ReactNode;
+}
+
+interface SeoMetaTagsProps {
+  "jcr:title"?: string;
+  "jcr:description"?: string;
+  "openGraphImage"?: JCRNodeWrapper;
+  "seoKeywords"?: string[];
+}
+
+interface OpenGraphImageSizes {
+  "j:width"?: number;
+  "j:height"?: number;
+}
+
+// ============================================================================
+// Main Layout Component
+// ============================================================================
+
+/**
+ * Main layout component that wraps the entire page
+ * Provides HTML structure, head elements, and footer area
+ */
 export const Layout = ({ title, head, children }: LayoutProps): JSX.Element => {
   const { currentResource, renderContext } = useServerContext();
   const lang = currentResource?.getLocale().getLanguage() ?? "en";
@@ -27,13 +56,20 @@ export const Layout = ({ title, head, children }: LayoutProps): JSX.Element => {
       <HtmlHead title={title}>{head}</HtmlHead>
       <body>
         {children}
-        {site && <AbsoluteArea name="footer" parent={site} nodeType="jempnt:footer" />}
+        {site && <AbsoluteArea name="footer" parent={site} nodeType="euint:footer" />}
       </body>
     </html>
   );
 };
 
-const HtmlHead = ({ title, children }: { title?: string; children?: ReactNode }): JSX.Element => (
+// ============================================================================
+// HTML Head Component
+// ============================================================================
+
+/**
+ * HTML head section with basic meta tags, SEO tags, and stylesheets
+ */
+const HtmlHead = ({ title, children }: HtmlHeadProps): JSX.Element => (
   <head>
     <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,20 +79,23 @@ const HtmlHead = ({ title, children }: { title?: string; children?: ReactNode })
   </head>
 );
 
-interface SeoMetaTagsProps {
-  "jcr:title"?: string;
-  "jcr:description"?: string;
-  openGraphImage?: JCRNodeWrapper;
-  seoKeywords?: string[];
-}
+// ============================================================================
+// SEO Meta Tags Component
+// ============================================================================
 
+/**
+ * Generates SEO and Open Graph meta tags based on the current node properties
+ * Includes title, description, keywords, and Open Graph image
+ */
 const SeoMetaTags = ({ fallbackTitle }: { fallbackTitle?: string }): JSX.Element | null => {
   const { currentNode, currentResource, renderContext } = useServerContext();
 
+  // Early return if required context is missing
   if (!currentNode || !currentResource || !renderContext) {
     return fallbackTitle ? <title>{fallbackTitle}</title> : null;
   }
 
+  // Check if node type supports SEO meta tags
   const isDisplayableNodeType =
     currentNode.isNodeType("jnt:page") || currentNode.isNodeType("jmix:mainResource");
 
@@ -64,33 +103,33 @@ const SeoMetaTags = ({ fallbackTitle }: { fallbackTitle?: string }): JSX.Element
     return fallbackTitle ? <title>{fallbackTitle}</title> : null;
   }
 
+  // Extract SEO properties from node
   const {
     "jcr:title": seoTitle,
     "jcr:description": seoDescription,
     openGraphImage,
     seoKeywords,
-  }: SeoMetaTagsProps = getNodeProps(currentNode, [
+  } = getNodeProps(currentNode, [
     "jcr:title",
     "jcr:description",
     "openGraphImage",
     "seoKeywords",
   ]) as SeoMetaTagsProps;
 
+  // Get contextual data
   const locale = currentResource.getLocale().getLanguage();
   const request = renderContext.getRequest();
-  const absOgImageUrl = openGraphImage?.getAbsoluteUrl(request);
   const site = renderContext.getSite();
-  let openGraphImageSizes: { "j:width"?: number; "j:height"?: number } = {};
+  const absOgImageUrl = openGraphImage?.getAbsoluteUrl(request);
 
-  if (openGraphImage) {
-    openGraphImageSizes = getNodeProps(openGraphImage, ["j:width", "j:height"]) as {
-      "j:width"?: number;
-      "j:height"?: number;
-    };
-  }
+  // Get Open Graph image dimensions
+  const openGraphImageSizes = openGraphImage
+    ? (getNodeProps(openGraphImage, ["j:width", "j:height"]) as OpenGraphImageSizes)
+    : {};
 
   return (
     <>
+      {/* Title Tags */}
       {seoTitle ? (
         <>
           <title>{seoTitle}</title>
@@ -99,17 +138,25 @@ const SeoMetaTags = ({ fallbackTitle }: { fallbackTitle?: string }): JSX.Element
       ) : (
         fallbackTitle && <title>{fallbackTitle}</title>
       )}
+
+      {/* Open Graph Basic Tags */}
       <meta property="og:locale" content={locale} />
       <meta property="og:type" content="website" />
-      {seoDescription && (
-        <>
-          <meta property="og:description" content={seoDescription} />
-          <meta name="description" content={seoDescription} />
-        </>
-      )}
       <meta property="og:url" content={currentNode.getAbsoluteUrl(request)} />
       {site && <meta property="og:site_name" content={site.getTitle()} />}
+
+      {/* Description Tags */}
+      {seoDescription && (
+        <>
+          <meta name="description" content={seoDescription} />
+          <meta property="og:description" content={seoDescription} />
+        </>
+      )}
+
+      {/* Keywords Tag */}
       {Boolean(seoKeywords?.length) && <meta name="keywords" content={seoKeywords!.join(",")} />}
+
+      {/* Open Graph Image Tags */}
       {absOgImageUrl && (
         <>
           <meta property="og:image" content={absOgImageUrl} />

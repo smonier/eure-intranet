@@ -13,13 +13,13 @@ const formatEffectiveDate = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:policy",
+    nodeType: "euint:policy",
     name: "default",
     displayName: "Policy Detail",
   },
   (rawProps) => {
     const props = rawProps as Props;
-    const effectiveDate = formatEffectiveDate(props["jemp:effectiveDate"]);
+    const effectiveDate = formatEffectiveDate(props["eui:effectiveDate"]);
 
     return (
       <article className={classes.policy}>
@@ -29,10 +29,10 @@ jahiaComponent(
             {t("jemp.label.effective")} {effectiveDate}
           </div>
         )}
-        {props["jemp:description"] && (
+        {props["eui:description"] && (
           <div
             className={classes.description}
-            dangerouslySetInnerHTML={{ __html: props["jemp:description"] }}
+            dangerouslySetInnerHTML={{ __html: props["eui:description"] }}
           />
         )}
       </article>

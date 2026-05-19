@@ -14,25 +14,25 @@ const field = (labelKey: string, fallback: string, value?: string | null) =>
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenuItem",
+    nodeType: "euint:cafeteriaMenuItem",
     name: "cm",
     displayName: "Cafeteria Menu Item (Content Editor)",
   },
   ({}, { currentNode }: { currentNode: JCRNodeWrapper }) => {
     const props = getNodeProps<{
       "jcr:title"?: string;
-      "jemp:menuDate"?: string;
-      "jemp:isVegan"?: string;
-      "jemp:allergens"?: string;
-    }>(currentNode, ["jcr:title", "jemp:menuDate", "jemp:isVegan", "jemp:allergens"]);
+      "eui:menuDate"?: string;
+      "eui:isVegan"?: string;
+      "eui:allergens"?: string;
+    }>(currentNode, ["jcr:title", "eui:menuDate", "eui:isVegan", "eui:allergens"]);
 
     return (
       <div className={classes.content}>
         <h3 className={classes.title}>{props["jcr:title"]}</h3>
         <div className={classes.chips}>
-          {field("cafeteriaMenuItem.cm.date", "Date", props["jemp:menuDate"])}
-          {field("cafeteriaMenuItem.cm.vegan", "Vegan", props["jemp:isVegan"])}
-          {field("cafeteriaMenuItem.cm.allergens", "Allergens", props["jemp:allergens"])}
+          {field("cafeteriaMenuItem.cm.date", "Date", props["eui:menuDate"])}
+          {field("cafeteriaMenuItem.cm.vegan", "Vegan", props["eui:isVegan"])}
+          {field("cafeteriaMenuItem.cm.allergens", "Allergens", props["eui:allergens"])}
         </div>
       </div>
     );

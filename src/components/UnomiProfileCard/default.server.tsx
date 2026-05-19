@@ -9,7 +9,7 @@ type Props = {
 
 jahiaComponent(
   {
-    nodeType: "jempnt:unomiProfileCard",
+    nodeType: "euint:unomiProfileCard",
     name: "default",
     componentType: "view",
   },

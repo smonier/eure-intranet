@@ -1,3 +1,3 @@
-[ jempnt:hrInsights ] > jnt:content, jempmix:component, mix:title
- - jemp:description (string, richtext) i18n
- - jemp:category (string, choicelist[resourceBundle]) = "payslips" autocreated indexed=no < "payslips","vacations","expenses"
+[ euint:hrInsights ] > jnt:content, euimix:component, mix:title
+ - eui:description (string, richtext) i18n
+ - eui:category (string, choicelist[resourceBundle]) = "payslips" autocreated indexed=no < "payslips","vacations","expenses"

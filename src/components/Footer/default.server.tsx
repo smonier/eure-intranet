@@ -6,7 +6,7 @@ import type { RenderContext } from "org.jahia.services.render";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:footer",
+    nodeType: "euint:footer",
     displayName: "Default Footer",
   },
   ({ notice }: Props, { renderContext }) => {

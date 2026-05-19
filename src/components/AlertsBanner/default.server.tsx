@@ -6,15 +6,15 @@ import classes from "./component.module.css";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:alertBanner",
+    nodeType: "euint:alertBanner",
     name: "default",
     displayName: "Alert Banner",
   },
   (rawProps) => {
     const props = rawProps as Props;
-    const message = props["jemp:message"];
-    const level = props["jemp:level"];
-    const expiry = props["jemp:expiryDate"];
+    const message = props["eui:message"];
+    const level = props["eui:level"];
+    const expiry = props["eui:expiryDate"];
     const alertId = props["jcr:uuid"];
 
     if (!message) return <></>;

@@ -1,6 +1,6 @@
-[ jempnt:news ] > jnt:content, jmix:editorialContent, jmix:mainResource, jempmix:component, jempmix:queryContent
+[ euint:news ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent
  - jcr:title (string) i18n
- - jemp:summary (string) i18n
- - jemp:body (string, richtext) i18n
- - jemp:heroImage (weakreference, picker[type='image']) < 'jmix:image'
+ - eui:summary (string) i18n
+ - eui:body (string, richtext) i18n
+ - eui:heroImage (weakreference, picker[type='image']) < 'jmix:image'
 

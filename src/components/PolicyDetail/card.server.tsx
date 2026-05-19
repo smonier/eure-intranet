@@ -14,16 +14,16 @@ const formatEffectiveDate = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:policy",
+    nodeType: "euint:policy",
     name: "card",
     displayName: "Policy Card",
     priority: 5,
   },
   (rawProps, { currentNode }) => {
     const props = rawProps as Props;
-    const effectiveDate = formatEffectiveDate(props["jemp:effectiveDate"]);
+    const effectiveDate = formatEffectiveDate(props["eui:effectiveDate"]);
     const title = props["jcr:title"];
-    const description = props["jemp:description"];
+    const description = props["eui:description"];
     const node = currentNode as JCRNodeWrapper;
 
     const firstParagraphMatch = description?.match(/<p[^>]*>(.*?)<\/p>/i);

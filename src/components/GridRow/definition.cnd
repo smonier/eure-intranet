@@ -1,2 +1,2 @@
-[ jempnt:gridRow ] > jnt:content, jempmix:component
- - jemp:columns (long)
+[ euint:gridRow ] > jnt:content, euimix:component
+ - eui:columns (long)

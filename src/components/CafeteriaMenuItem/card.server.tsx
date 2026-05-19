@@ -15,12 +15,12 @@ import {
 
 type Props = {
   "jcr:title"?: string;
-  "jemp:menuDate"?: string;
-  "jemp:isVegan"?: string | boolean;
-  "jemp:allergens"?: string | string[];
-  "jemp:dishes"?: string;
-  "jemp:calories"?: string;
-  "jemp:image"?: unknown;
+  "eui:menuDate"?: string;
+  "eui:isVegan"?: string | boolean;
+  "eui:allergens"?: string | string[];
+  "eui:dishes"?: string;
+  "eui:calories"?: string;
+  "eui:image"?: unknown;
 };
 
 const resolveVegan = (value: unknown) => {
@@ -36,7 +36,7 @@ const resolveVegan = (value: unknown) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenuItem",
+    nodeType: "euint:cafeteriaMenuItem",
     name: "card",
     displayName: "Cafeteria Menu Item Card",
   },
@@ -53,12 +53,12 @@ jahiaComponent(
     const props = node
       ? getNodeProps<Props>(node, [
           "jcr:title",
-          "jemp:menuDate",
-          "jemp:isVegan",
-          "jemp:allergens",
-          "jemp:dishes",
-          "jemp:calories",
-          "jemp:image",
+          "eui:menuDate",
+          "eui:isVegan",
+          "eui:allergens",
+          "eui:dishes",
+          "eui:calories",
+          "eui:image",
         ])
       : rawProps;
 
@@ -66,13 +66,13 @@ jahiaComponent(
       normaliseLocaleCode(currentResource.getLocale().getLanguage()) ?? "en";
 
     const title = resolveLocalizedString(props["jcr:title"], locale) || props["jcr:title"];
-    const normalisedDate = normaliseMenuDate(props["jemp:menuDate"]);
+    const normalisedDate = normaliseMenuDate(props["eui:menuDate"]);
     const menuDate = formatMenuDateLabel(normalisedDate, locale);
-    const isVegan = resolveVegan(props["jemp:isVegan"]);
-    const allergens = resolveLocalizedStringList(props["jemp:allergens"], locale);
-    const description = resolveLocalizedString(props["jemp:dishes"], locale);
-    const calories = resolveLocalizedString(props["jemp:calories"], locale) || props["jemp:calories"];
-    const imageUrl = resolveImageUrl(props["jemp:image"]);
+    const isVegan = resolveVegan(props["eui:isVegan"]);
+    const allergens = resolveLocalizedStringList(props["eui:allergens"], locale);
+    const description = resolveLocalizedString(props["eui:dishes"], locale);
+    const calories = resolveLocalizedString(props["eui:calories"], locale) || props["eui:calories"];
+    const imageUrl = resolveImageUrl(props["eui:image"]);
 
     return (
       <article className={classes.card} itemScope itemType="https://schema.org/MenuItem">

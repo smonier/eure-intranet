@@ -25,20 +25,20 @@ const ICONS: Record<string, ComponentType<LucideProps>> = {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:quickLink",
+    nodeType: "euint:quickLink",
     displayName: "Quick Link",
   },
   (props: QuickLinkProps) => {
     const {
       "jcr:title": title,
-      "jemp:icon": icon,
+      "eui:icon": icon,
       "seu:linkType": linkType,
       "seu:linkTarget": linkTarget,
       "seu:externalLink": externalUrl,
       "seu:internalLink": internalLink,
     } = props;
 
-    const rawHref = props["jemp:url"];
+    const rawHref = props["eui:url"];
     let href = rawHref || "";
     if (linkType === "externalLink" && externalUrl) {
       href = externalUrl;

@@ -7,17 +7,17 @@ import classes from "./card.module.css";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:news",
+    nodeType: "euint:news",
     name: "card",
     displayName: "News Card",
   },
   (rawProps, { currentNode }) => {
     const props = rawProps as unknown as Props;
     const node = currentNode as JCRNodeWrapper;
-    const heroImage = props["jemp:heroImage"];
+    const heroImage = props["eui:heroImage"];
     const url = buildNodeUrl(node);
-    const publishDate = props["jemp:publishDate"]
-      ? new Date(props["jemp:publishDate"]).toLocaleDateString("en-US", {
+    const publishDate = props["eui:publishDate"]
+      ? new Date(props["eui:publishDate"]).toLocaleDateString("en-US", {
           year: "numeric",
           month: "short",
           day: "numeric",
@@ -35,7 +35,7 @@ jahiaComponent(
           <div className={classes.content}>
             {publishDate && <time className={classes.date}>{publishDate}</time>}
             <h3 className={classes.title}>{props["jcr:title"]}</h3>
-            {props["jemp:summary"] && <p className={classes.summary}>{props["jemp:summary"]}</p>}
+            {props["eui:summary"] && <p className={classes.summary}>{props["eui:summary"]}</p>}
             <span className={classes.readMore}>{t("jemp.label.readMore")} →</span>
           </div>
         </a>

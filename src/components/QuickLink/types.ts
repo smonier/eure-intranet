@@ -2,8 +2,8 @@ import type { JCRNodeWrapper } from "org.jahia.services.content";
 
 export type QuickLinkProps = {
   "jcr:title": string;
-  "jemp:icon"?: string;
-  "jemp:url"?: string;
+  "eui:icon"?: string;
+  "eui:url"?: string;
   "seu:linkType"?: string;
   "seu:linkTarget"?: string;
   "seu:externalLink"?: string;

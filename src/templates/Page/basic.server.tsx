@@ -16,7 +16,7 @@ jahiaComponent(
   },
   ({ "jcr:title": title }: BasicPageProps) => (
     <Layout title={title}>
-      <Render content={{ nodeType: "jempnt:navBar" }} />
+      <Render content={{ nodeType: "euint:navBar" }} />
       <main>
         <section id="content" className={styles.contentZone}>
           <div className={styles.container}>

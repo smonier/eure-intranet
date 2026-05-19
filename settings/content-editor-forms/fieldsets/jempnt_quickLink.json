@@ -1,11 +1,11 @@
 {
-  "name": "jempnt:quickLink",
+  "name": "euint:quickLink",
   "description": "Quick Link component",
   "dynamic": false,
 
   "fields": [
     {
-      "name": "jemp:icon",
+      "name": "eui:icon",
       "selectorType": "Choicelist",
       "selectorOptionsMap": {
         "allowCustomEntry": "false"

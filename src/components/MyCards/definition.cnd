@@ -1,6 +1,6 @@
-[ jempnt:dashboardCard ] > jnt:content, jmix:editorialContent, jempmix:component, jempmix:queryContent
+[ euint:dashboardCard ] > jnt:content, jmix:editorialContent, euimix:component, euimix:queryContent
  - jcr:title (string) i18n
- - jemp:type (string) = 'info' autocreated < 'info', 'stat', 'task', 'link'
- - jemp:deeplink (string)
- - jemp:value (string)
- - jemp:icon (string)
+ - eui:type (string) = 'info' autocreated < 'info', 'stat', 'task', 'link'
+ - eui:deeplink (string)
+ - eui:value (string)
+ - eui:icon (string)

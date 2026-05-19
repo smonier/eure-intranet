@@ -13,26 +13,26 @@ const formatReviewedDate = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:kbArticle",
+    nodeType: "euint:kbArticle",
     name: "default",
     displayName: "Knowledge Base Article",
   },
   (rawProps) => {
     const props = rawProps as Props;
-    const reviewed = formatReviewedDate(props["jemp:lastReviewed"]);
+    const reviewed = formatReviewedDate(props["eui:lastReviewed"]);
 
     return (
       <article className={classes.article}>
         <h2 className={classes.title}>{props["jcr:title"]}</h2>
-        {props["jemp:problem"] && <p className={classes.problem}>{props["jemp:problem"]}</p>}
-        {(props["jemp:platform"] || reviewed) && (
+        {props["eui:problem"] && <p className={classes.problem}>{props["eui:problem"]}</p>}
+        {(props["eui:platform"] || reviewed) && (
           <div className={classes.meta}>
-            {props["jemp:platform"] && (
+            {props["eui:platform"] && (
               <span>
-                {t("jemp.label.platform")}: {props["jemp:platform"]}
+                {t("jemp.label.platform")}: {props["eui:platform"]}
               </span>
             )}
-            {props["jemp:platform"] && reviewed && " · "}
+            {props["eui:platform"] && reviewed && " · "}
             {reviewed && (
               <span>
                 {t("jemp.label.lastReviewed")}: {reviewed}
@@ -40,10 +40,10 @@ jahiaComponent(
             )}
           </div>
         )}
-        {props["jemp:steps"] && (
+        {props["eui:steps"] && (
           <div
             className={classes.steps}
-            dangerouslySetInnerHTML={{ __html: props["jemp:steps"] }}
+            dangerouslySetInnerHTML={{ __html: props["eui:steps"] }}
           />
         )}
       </article>

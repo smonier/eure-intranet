@@ -53,7 +53,7 @@ const describeWeek = (items: CafeteriaMenuItem[], locale: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenu",
+    nodeType: "euint:cafeteriaMenu",
     name: "fullPage",
     displayName: "Cafeteria Menu - Full Page",
   },
@@ -69,7 +69,7 @@ jahiaComponent(
   ) => {
     const node = (rawProps.node || currentNode) as JCRNodeWrapper | undefined;
     const locale = normaliseLocaleCode(currentResource.getLocale().getLanguage()) ?? "en";
-    const weekLabel = rawProps["jemp:weekLabel"] || rawProps["jcr:title"] || "Cafeteria Menu";
+    const weekLabel = rawProps["eui:weekLabel"] || rawProps["jcr:title"] || "Cafeteria Menu";
 
     const rawChildren =
       node && typeof node.getSession === "function" ? getChildNodes(node, -1, 0) : [];

@@ -1,5 +1,5 @@
-[ jempnt:alertBanner ] > jnt:content, jmix:editorialContent, jempmix:component
+[ euint:alertBanner ] > jnt:content, jmix:editorialContent, euimix:component
  - jcr:title (string) i18n
- - jemp:level (string, choicelist[resourceBundle]) mandatory < 'info', 'warning', 'error', 'success'
- - jemp:message (string) i18n
- - jemp:expiryDate (date)
+ - eui:level (string, choicelist[resourceBundle]) mandatory < 'info', 'warning', 'error', 'success'
+ - eui:message (string) i18n
+ - eui:expiryDate (date)

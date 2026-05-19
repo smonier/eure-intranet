@@ -18,13 +18,13 @@ jahiaComponent(
   },
   ({ "jcr:title": title }: HomePageProps) => (
     <Layout title={title}>
-      <Render content={{ nodeType: "jempnt:navBar" }} />
+      <Render content={{ nodeType: "euint:navBar" }} />
 
       <main>
         <section id="content" className={styles.contentZone}>
           <div className={styles.container}>
             <div className={styles.contentGrid}>
-              <Area name="alerts" allowedNodeTypes={["jempnt:alertContainer"]} />
+              <Area name="alerts" allowedNodeTypes={["euint:alertContainer"]} />
             </div>
 
             <div className={styles.twoColumnRow}>

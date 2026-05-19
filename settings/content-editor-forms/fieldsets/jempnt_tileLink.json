@@ -1,11 +1,11 @@
 {
-  "name": "jempnt:tileLink",
+  "name": "euint:tileLink",
   "description": "Tile Link component",
   "dynamic": false,
 
   "fields": [
     {
-      "name": "jemp:icon",
+      "name": "eui:icon",
       "selectorType": "Choicelist",
       "selectorOptionsMap": {
         "allowCustomEntry": "false"

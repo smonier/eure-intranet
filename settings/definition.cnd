@@ -1,11 +1,11 @@
-<jemp='http://www.acme.com/jahia/employeeportal/1.0'>
-<jempnt = 'https://example.com/employeeportal/nt/1.0'>
-<jempmix = 'https://example.com/employeeportal/mix/1.0'>
+<eui='http://modules.jahia.org/eure-intranet/1.0'>
+<euint = 'https://modules.jahia.org/eure-intranet/nt/1.0'>
+<euimix = 'https://modules.jahia.org/eure-intranet/mix/1.0'>
 <seumix = 'http://modules.se.jahia.org/se-utils/mix/1.0'>
 <seu = 'http://modules.se.jahia.org/se-utils/1.0'>
 
 // Global, reusable content types can be declared here;
 // component-specific definitions live alongside their components in src/components.
 
-[jempmix:component] > jmix:droppableContent, jmix:accessControllableContent mixin
-[jempmix:queryContent] mixin
+[euimix:component] > jmix:droppableContent, jmix:accessControllableContent mixin
+[euimix:queryContent] mixin

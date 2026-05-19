@@ -56,6 +56,6 @@ export type HrMockData = {
 
 export type HrInsightsProps = {
   "jcr:title"?: string;
-  "jemp:description"?: string;
-  "jemp:category"?: HrCategory;
+  "eui:description"?: string;
+  "eui:category"?: HrCategory;
 };

@@ -4,7 +4,7 @@ import type { JCRNodeWrapper } from "org.jahia.services.content";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenuItem",
+    nodeType: "euint:cafeteriaMenuItem",
     name: "default",
     displayName: "Cafeteria Menu Item",
   },

@@ -1,2 +1,2 @@
-[ jempnt:searchBox ] > jnt:content, jempmix:component
- - jemp:placeholder (string) i18n
+[ euint:searchBox ] > jnt:content, euimix:component
+ - eui:placeholder (string) i18n

@@ -10,7 +10,7 @@ import { resolveLink } from "~/utils/linkTo";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:training",
+    nodeType: "euint:training",
     name: "card",
     displayName: "Training Card",
   },
@@ -19,18 +19,18 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const provider = props["jemp:providerName"];
-    const registrationLink = resolveLink(props, props["jemp:providerUrl"]);
+    const summary = props["eui:summary"];
+    const provider = props["eui:providerName"];
+    const registrationLink = resolveLink(props, props["eui:providerUrl"]);
     const ctaUrl = registrationLink.href;
     const detailUrl =
       (currentNode as JCRNodeWrapper | undefined)?.getPath instanceof Function
         ? buildNodeUrl(currentNode as JCRNodeWrapper)
         : ctaUrl;
-    const imageUrl = resolveImageUrl(props["jemp:heroImage"], renderContext as RenderContext);
-    const start = formatDateTime(props["jemp:startDate"], locale);
-    const delivery = props["jemp:deliveryMode"];
-    const location = props["jemp:location"];
+    const imageUrl = resolveImageUrl(props["eui:heroImage"], renderContext as RenderContext);
+    const start = formatDateTime(props["eui:startDate"], locale);
+    const delivery = props["eui:deliveryMode"];
+    const location = props["eui:location"];
     const viewDetailsLabel = t("training.cta.viewDetails", "View details");
 
     const content = (

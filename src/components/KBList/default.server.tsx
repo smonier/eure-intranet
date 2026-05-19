@@ -5,12 +5,12 @@ import classes from "./component.module.css";
 
 /** Get all child KB articles */
 const getChildArticles = (node: JCRNodeWrapper) =>
-  getChildNodes(node, -1, 0, (child) => child.isNodeType("jempnt:kbArticle"));
+  getChildNodes(node, -1, 0, (child) => child.isNodeType("euint:kbArticle"));
 
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:kbList",
+    nodeType: "euint:kbList",
     displayName: "Knowledge Base List",
   },
   ({ node }: { node?: JCRNodeWrapper }) => {
@@ -21,8 +21,8 @@ jahiaComponent(
     const title = node.hasProperty("jcr:title")
       ? node.getProperty("jcr:title").getString()
       : t("kb.list.defaultTitle", "IT Help & Support");
-    const limit = node.hasProperty("jemp:limit")
-      ? Number(node.getProperty("jemp:limit").getLong())
+    const limit = node.hasProperty("eui:limit")
+      ? Number(node.getProperty("eui:limit").getLong())
       : 5;
 
     const allArticles = getChildArticles(node);
@@ -38,11 +38,11 @@ jahiaComponent(
         <ul className={classes.articles}>
           {articles.map((article) => {
             const articleTitle = article.getProperty("jcr:title").getString();
-            const problem = article.hasProperty("jemp:problem")
-              ? article.getProperty("jemp:problem").getString()
+            const problem = article.hasProperty("eui:problem")
+              ? article.getProperty("eui:problem").getString()
               : null;
-            const platform = article.hasProperty("jemp:platform")
-              ? article.getProperty("jemp:platform").getString()
+            const platform = article.hasProperty("eui:platform")
+              ? article.getProperty("eui:platform").getString()
               : null;
             const articleUrl = buildNodeUrl(article);
 

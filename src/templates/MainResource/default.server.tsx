@@ -19,7 +19,7 @@ jahiaComponent(
   },
   ({ title }: BasicPageProps, { currentNode }: BasicPageProps) => (
     <Layout title={title}>
-      <Render content={{ nodeType: "jempnt:navBar" }} />
+      <Render content={{ nodeType: "euint:navBar" }} />
       <Render node={currentNode} view="fullPage" />
       </Layout>
   ),

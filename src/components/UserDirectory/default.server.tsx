@@ -4,7 +4,7 @@ import UserDirectoryClient from "./UserDirectory.client";
 
 type Props = {
   "jcr:title"?: string;
-  "jemp:subtitle"?: string;
+  "eui:subtitle"?: string;
 };
 
 const readEnv = (key: string): string | undefined => {
@@ -59,13 +59,13 @@ const results = resolveResultsCount();
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:userDirectory",
+    nodeType: "euint:userDirectory",
     name: "default",
     displayName: "User Directory",
   },
   (props: Props) => {
     const title = props["jcr:title"];
-    const subtitle = props["jemp:subtitle"];
+    const subtitle = props["eui:subtitle"];
 
     return (
       <section className={classes.container}>

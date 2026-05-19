@@ -1,10 +1,15 @@
 :root {
-  --primary: #002244;
-  --primary-rgb: 0, 34, 68;
-  --secondary: #2563eb;
-  --portal-color-primary: #002244;
-  --portal-color-primary-dark: #000000;
-  --portal-color-accent: #2563eb;
+  /* Eure-et-Loir branding */
+  --primary: #1C3F6E;
+  --primary-rgb: 28, 63, 110;
+
+  --secondary: #4A8F3F;
+  --accent: #F4C430;
+
+  /* Portal theme */
+  --portal-color-primary: var(--primary);
+  --portal-color-primary-dark: #0d1f37;
+  --portal-color-accent: var(--accent);
 }
 
 * {

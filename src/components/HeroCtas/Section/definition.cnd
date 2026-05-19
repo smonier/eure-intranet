@@ -1,0 +1,5 @@
+[euint:heroSection] > jnt:content, euimix:component
+ - title (string) i18n mandatory
+ - subtitle (string, textarea) i18n mandatory
+ - background (weakreference, picker[type='image']) mandatory < jmix:image
+ + * (euint:heroCallToAction)

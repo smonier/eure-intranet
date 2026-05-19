@@ -4,12 +4,12 @@ import classes from "./component.module.css";
 
 /** Get all child cards */
 const getChildCards = (node: JCRNodeWrapper) =>
-  getChildNodes(node, -1, 0, (child) => child.isNodeType("jempnt:dashboardCard"));
+  getChildNodes(node, -1, 0, (child) => child.isNodeType("euint:dashboardCard"));
 
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:myCards",
+    nodeType: "euint:myCards",
     name: "default",
     displayName: "My Cards",
   },
@@ -26,17 +26,17 @@ jahiaComponent(
         <div className={classes.cardGrid}>
           {cards.map((card) => {
             const title = card.getProperty("jcr:title").getString();
-            const type = card.hasProperty("jemp:type")
-              ? card.getProperty("jemp:type").getString()
+            const type = card.hasProperty("eui:type")
+              ? card.getProperty("eui:type").getString()
               : "info";
-            const deeplink = card.hasProperty("jemp:deeplink")
-              ? card.getProperty("jemp:deeplink").getString()
+            const deeplink = card.hasProperty("eui:deeplink")
+              ? card.getProperty("eui:deeplink").getString()
               : null;
-            const value = card.hasProperty("jemp:value")
-              ? card.getProperty("jemp:value").getString()
+            const value = card.hasProperty("eui:value")
+              ? card.getProperty("eui:value").getString()
               : null;
-            const icon = card.hasProperty("jemp:icon")
-              ? card.getProperty("jemp:icon").getString()
+            const icon = card.hasProperty("eui:icon")
+              ? card.getProperty("eui:icon").getString()
               : null;
 
             const CardWrapper = deeplink ? "a" : "div";

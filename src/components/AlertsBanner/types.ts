@@ -1,6 +1,6 @@
 export type Props = {
-  "jemp:level"?: string;
-  "jemp:message"?: string;
-  "jemp:expiryDate"?: string;
+  "eui:level"?: string;
+  "eui:message"?: string;
+  "eui:expiryDate"?: string;
   "jcr:uuid"?: string;
 };

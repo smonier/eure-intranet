@@ -1,7 +1,7 @@
 export type Props = {
   "jcr:title"?: string;
-  "jemp:description"?: string;
-  "jemp:buttonLabel"?: string;
+  "eui:description"?: string;
+  "eui:buttonLabel"?: string;
   "jcr:uuid"?: string;
   "j:children"?: { [key: string]: unknown };
 };

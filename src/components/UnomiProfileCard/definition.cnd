@@ -1,2 +1,2 @@
-[jempnt:unomiProfileCard] > jnt:content, jmix:droppableContent, jempmix:component
+[euint:unomiProfileCard] > jnt:content, jmix:droppableContent, euimix:component
  - jcr:title (string) i18n

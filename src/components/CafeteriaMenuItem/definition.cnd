@@ -1,8 +1,8 @@
-[ jempnt:cafeteriaMenuItem ] > jnt:content, jmix:editorialContent, jmix:mainResource, jempmix:component
+[ euint:cafeteriaMenuItem ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component
  - jcr:title (string) i18n
- - jemp:menuDate (date)
- - jemp:isVegan (boolean)
- - jemp:allergens (string) i18n
- - jemp:dishes (string, richtext) i18n
- - jemp:image (weakreference, picker[type='image']) < 'jmix:image'
- - jemp:calories (string)
+ - eui:menuDate (date)
+ - eui:isVegan (boolean)
+ - eui:allergens (string) i18n
+ - eui:dishes (string, richtext) i18n
+ - eui:image (weakreference, picker[type='image']) < 'jmix:image'
+ - eui:calories (string)

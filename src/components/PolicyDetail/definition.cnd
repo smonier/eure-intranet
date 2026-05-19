@@ -1,5 +1,5 @@
-[ jempnt:policy ] > jnt:content, jmix:editorialContent, jmix:mainResource, jempmix:component, jempmix:queryContent
+[ euint:policy ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent
  - jcr:title (string) i18n
- - jemp:description (string, richtext) i18n
- - jemp:effectiveDate (date)
+ - eui:description (string, richtext) i18n
+ - eui:effectiveDate (date)
  - j:templateName (string)

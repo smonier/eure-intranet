@@ -9,12 +9,12 @@ import ContributionModalIsland from "./island.client";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:contributionModal",
+    nodeType: "euint:contributionModal",
     name: "default",
     displayName: "Contribution Modal",
   },
   (rawProps: Props, { renderContext, currentNode }) => {
-    const { "jcr:title": title, "jemp:description": description, "jemp:buttonLabel": buttonLabel, "jcr:uuid": uuid } =
+    const { "jcr:title": title, "eui:description": description, "eui:buttonLabel": buttonLabel, "jcr:uuid": uuid } =
       rawProps;
 
     const modalId = `contribution-modal-${uuid ?? Math.random().toString(36).slice(2)}`;

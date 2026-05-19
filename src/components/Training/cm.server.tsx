@@ -8,7 +8,7 @@ import { formatDateTime, resolveImageUrl, resolveLocale } from "./utils";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:training",
+    nodeType: "euint:training",
     name: "cm",
     displayName: "Training - Content Manager Preview",
   },
@@ -17,12 +17,12 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const provider = props["jemp:providerName"];
-    const imageUrl = resolveImageUrl(props["jemp:heroImage"], renderContext as RenderContext);
-    const start = formatDateTime(props["jemp:startDate"], locale);
-    const delivery = props["jemp:deliveryMode"];
-    const location = props["jemp:location"];
+    const summary = props["eui:summary"];
+    const provider = props["eui:providerName"];
+    const imageUrl = resolveImageUrl(props["eui:heroImage"], renderContext as RenderContext);
+    const start = formatDateTime(props["eui:startDate"], locale);
+    const delivery = props["eui:deliveryMode"];
+    const location = props["eui:location"];
 
     return (
       <article className={classes.card}>

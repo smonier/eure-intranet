@@ -1,4 +1,4 @@
 export type GridRowProps = {
-  "jemp:columns"?: number;
+  "eui:columns"?: number;
   [key: string]: unknown;
 };

@@ -15,12 +15,12 @@ import {
 
 type Props = {
   "jcr:title"?: string;
-  "jemp:menuDate"?: string;
-  "jemp:isVegan"?: string | boolean;
-  "jemp:allergens"?: string | string[];
-  "jemp:dishes"?: string;
-  "jemp:calories"?: string;
-  "jemp:image"?: unknown;
+  "eui:menuDate"?: string;
+  "eui:isVegan"?: string | boolean;
+  "eui:allergens"?: string | string[];
+  "eui:dishes"?: string;
+  "eui:calories"?: string;
+  "eui:image"?: unknown;
 };
 
 const toBoolean = (value?: unknown) => {
@@ -39,7 +39,7 @@ const resolveAllergens = (value: unknown, locale: string) =>
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenuItem",
+    nodeType: "euint:cafeteriaMenuItem",
     name: "fullPage",
     displayName: "Cafeteria Menu Item - Full Page",
   },
@@ -59,25 +59,25 @@ jahiaComponent(
     const props = node
       ? getNodeProps<Props>(node, [
           "jcr:title",
-          "jemp:menuDate",
-          "jemp:isVegan",
-          "jemp:allergens",
-          "jemp:dishes",
-          "jemp:calories",
-          "jemp:image",
+          "eui:menuDate",
+          "eui:isVegan",
+          "eui:allergens",
+          "eui:dishes",
+          "eui:calories",
+          "eui:image",
         ])
       : rawProps;
 
     const locale = normaliseLocaleCode(currentResource.getLocale().getLanguage()) ?? "en";
     const title = resolveLocalizedString(props["jcr:title"], locale) || props["jcr:title"];
-    const rawDate = normaliseMenuDate(props["jemp:menuDate"]);
+    const rawDate = normaliseMenuDate(props["eui:menuDate"]);
     const dateLabel = formatMenuDateLabel(rawDate, locale);
-    const isVegan = toBoolean(props["jemp:isVegan"]);
-    const allergens = resolveAllergens(props["jemp:allergens"], locale);
-    const descriptionSource = resolveLocalizedString(props["jemp:dishes"], locale);
+    const isVegan = toBoolean(props["eui:isVegan"]);
+    const allergens = resolveAllergens(props["eui:allergens"], locale);
+    const descriptionSource = resolveLocalizedString(props["eui:dishes"], locale);
     const description = sanitiseRichText(descriptionSource);
-    const calories = resolveLocalizedString(props["jemp:calories"], locale) || props["jemp:calories"];
-    const imageUrl = resolveImageUrl(props["jemp:image"]);
+    const calories = resolveLocalizedString(props["eui:calories"], locale) || props["eui:calories"];
+    const imageUrl = resolveImageUrl(props["eui:image"]);
 
     return (
       <article className={classes.fullPage}>

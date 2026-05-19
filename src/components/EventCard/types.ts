@@ -2,11 +2,11 @@ import type { JCRNodeWrapper } from "org.jahia.services.content";
 
 export type Props = {
   "jcr:title": string;
-  "jemp:summary"?: string;
-  "jemp:start"?: string;
-  "jemp:end"?: string;
-  "jemp:location"?: string;
-  "jemp:requiresRSVP"?: boolean;
+  "eui:summary"?: string;
+  "eui:start"?: string;
+  "eui:end"?: string;
+  "eui:location"?: string;
+  "eui:requiresRSVP"?: boolean;
   "seu:linkType"?: string;
   "seu:linkTarget"?: string;
   "seu:externalLink"?: string;

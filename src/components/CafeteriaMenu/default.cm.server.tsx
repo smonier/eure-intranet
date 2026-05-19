@@ -5,7 +5,7 @@ import classes from "./component.module.css";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:cafeteriaMenu",
+    nodeType: "euint:cafeteriaMenu",
     name: "cm",
     displayName: "Cafeteria Menu (Content Editor)",
   },

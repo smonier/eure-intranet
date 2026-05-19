@@ -1,3 +1,3 @@
-[ jempnt:kbList ] > jnt:content, jempmix:component
+[ euint:kbList ] > jnt:content, euimix:component
  - jcr:title (string) i18n
- - jemp:limit (long) = 5 autocreated
+ - eui:limit (long) = 5 autocreated

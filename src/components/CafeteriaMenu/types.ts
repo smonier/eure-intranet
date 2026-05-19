@@ -14,6 +14,6 @@ export type CafeteriaMenuItem = {
 export type CafeteriaMenuProps = {
   node?: JCRNodeWrapper;
   "jcr:title"?: string;
-  "jemp:weekLabel"?: string;
+  "eui:weekLabel"?: string;
   [key: string]: unknown;
 };

@@ -25,8 +25,12 @@ const hasPermission = async (gqlUrl: string, permission: string, path: string) =
     }),
   });
 
+  if (!response.ok) {
+    return false;
+  }
+
   const data = await response.json();
-  return data.data.jcr.nodeByPath.site.hasPermission;
+  return data?.data?.jcr?.nodeByPath?.site?.hasPermission === true;
 };
 
 const WorkspaceNavigationClient = ({
@@ -43,12 +47,22 @@ const WorkspaceNavigationClient = ({
 
   useEffect(() => {
     const getPermissions = async () => {
-      setHasJContentPermission(await hasPermission(urls.gqlUrl, "jContentAccess", nodePath));
+      if (mode === "live") {
+        setHasJContentPermission(false);
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        setHasJContentPermission(await hasPermission(urls.gqlUrl, "jContentAccess", nodePath));
+      } catch {
+        setHasJContentPermission(false);
+      }
       setIsLoading(false);
     };
 
     void getPermissions();
-  }, [nodePath, urls.gqlUrl]);
+  }, [mode, nodePath, urls.gqlUrl]);
 
   if (isLoading) {
     return null;

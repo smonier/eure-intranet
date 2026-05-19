@@ -5,7 +5,7 @@ import classes from "./component.module.css";
 
 jahiaComponent(
   {
-    nodeType: "jempnt:twoColumnRow",
+    nodeType: "euint:twoColumnRow",
     name: "default",
     displayName: "Two Column Row",
   },

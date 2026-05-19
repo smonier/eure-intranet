@@ -8,7 +8,7 @@ import { formatDate, formatSalary, resolveLocale } from "./utils";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:jobPosting",
+    nodeType: "euint:jobPosting",
     name: "cm",
     displayName: "Job Posting - Content Manager Preview",
   },
@@ -16,15 +16,15 @@ jahiaComponent(
     const locale = resolveLocale(renderContext as RenderContext);
     const props = rawProps;
 
-    const summary = props["jemp:summary"];
-    const employmentType = props["jemp:employmentType"];
-    const workplace = props["jemp:workplaceType"];
-    const department = props["jemp:department"];
-    const company = props["jemp:company"];
-    const location = props["jemp:jobLocation"];
+    const summary = props["eui:summary"];
+    const employmentType = props["eui:employmentType"];
+    const workplace = props["eui:workplaceType"];
+    const department = props["eui:department"];
+    const company = props["eui:company"];
+    const location = props["eui:jobLocation"];
     const salary = formatSalary(props, locale);
-    const posted = formatDate(props["jemp:datePosted"], locale);
-    const deadline = formatDate(props["jemp:validThrough"], locale);
+    const posted = formatDate(props["eui:datePosted"], locale);
+    const deadline = formatDate(props["eui:validThrough"], locale);
 
     return (
       <article className={classes.card}>

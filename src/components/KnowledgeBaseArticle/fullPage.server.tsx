@@ -42,7 +42,7 @@ const resolveLocale = (renderContext: RenderContext) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:kbArticle",
+    nodeType: "euint:kbArticle",
     name: "fullPage",
     displayName: "Knowledge Base Article (Full)",
   },
@@ -51,10 +51,10 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const problem = props["jemp:problem"];
-    const platform = props["jemp:platform"];
-    const lastReviewed = formatDate(props["jemp:lastReviewed"], locale);
-    const steps = props["jemp:steps"];
+    const problem = props["eui:problem"];
+    const platform = props["eui:platform"];
+    const lastReviewed = formatDate(props["eui:lastReviewed"], locale);
+    const steps = props["eui:steps"];
 
     const metaEntries = [
       platform && {

@@ -9,7 +9,7 @@ import { resolveLink } from "~/utils/linkTo";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:training",
+    nodeType: "euint:training",
     name: "fullPage",
     displayName: "Training Full Page",
   },
@@ -18,58 +18,58 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const description = props["jemp:description"];
-    const providerName = props["jemp:providerName"];
-    const providerUrl = props["jemp:providerUrl"];
+    const summary = props["eui:summary"];
+    const description = props["eui:description"];
+    const providerName = props["eui:providerName"];
+    const providerUrl = props["eui:providerUrl"];
     const registrationLink = resolveLink(props, providerUrl);
     const ctaUrl = registrationLink.href;
     const ctaTarget = registrationLink.target ?? "_self";
     const ctaRel = registrationLink.rel ?? (ctaTarget === "_blank" ? "noopener noreferrer" : undefined);
-    const imageUrl = resolveImageUrl(props["jemp:heroImage"], renderContext as RenderContext);
+    const imageUrl = resolveImageUrl(props["eui:heroImage"], renderContext as RenderContext);
     const jsonLd = buildJsonLd(props, locale, ctaUrl, imageUrl);
     const schedule = [
       {
         label: t("training.meta.start", "Starts"),
-        value: formatDateTime(props["jemp:startDate"], locale),
+        value: formatDateTime(props["eui:startDate"], locale),
       },
       {
         label: t("training.meta.end", "Ends"),
-        value: formatDateTime(props["jemp:endDate"], locale),
+        value: formatDateTime(props["eui:endDate"], locale),
       },
       {
         label: t("training.meta.duration", "Duration"),
-        value: props["jemp:duration"],
+        value: props["eui:duration"],
       },
     ].filter((entry) => entry.value);
 
     const essentials = [
       {
         label: t("training.meta.delivery", "Delivery mode"),
-        value: props["jemp:deliveryMode"],
+        value: props["eui:deliveryMode"],
       },
       {
         label: t("training.meta.location", "Location"),
-        value: props["jemp:location"],
+        value: props["eui:location"],
       },
       {
         label: t("training.meta.cost", "Cost"),
-        value: props["jemp:cost"],
+        value: props["eui:cost"],
       },
     ].filter((entry) => entry.value);
 
     const profile = [
       {
         label: t("training.meta.skillLevel", "Skill level"),
-        value: props["jemp:skillLevel"],
+        value: props["eui:skillLevel"],
       },
       {
         label: t("training.meta.audience", "Audience"),
-        value: props["jemp:audience"],
+        value: props["eui:audience"],
       },
       {
         label: t("training.meta.format", "Format"),
-        value: props["jemp:format"],
+        value: props["eui:format"],
       },
     ].filter((entry) => entry.value);
 
@@ -80,8 +80,8 @@ jahiaComponent(
           <div className={classes.heroContent}>
             <div className={classes.heroMeta}>
               <span className={classes.heroChip}>{t("training.label", "Training")}</span>
-              {props["jemp:format"] && <span className={classes.heroChip}>{props["jemp:format"]}</span>}
-              {props["jemp:deliveryMode"] && <span className={classes.heroChip}>{props["jemp:deliveryMode"]}</span>}
+              {props["eui:format"] && <span className={classes.heroChip}>{props["eui:format"]}</span>}
+              {props["eui:deliveryMode"] && <span className={classes.heroChip}>{props["eui:deliveryMode"]}</span>}
             </div>
             <h1 className={classes.heroTitle} itemProp="name">
               {title}

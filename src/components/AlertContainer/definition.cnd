@@ -1,2 +1,2 @@
-[ jempnt:alertContainer ] > jnt:content, jmix:list, mix:title, jmix:editorialContent, jempmix:component
-+ * (jempnt:alertBanner) = jempnt:alertBanner
+[ euint:alertContainer ] > jnt:content, jmix:list, mix:title, jmix:editorialContent, euimix:component
++ * (euint:alertBanner) = euint:alertBanner

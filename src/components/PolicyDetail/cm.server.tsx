@@ -11,8 +11,8 @@ const formatEffectiveDate = (value?: string) => {
 };
 
 const CardView = (props: Props) => {
-  const effectiveDate = formatEffectiveDate(props["jemp:effectiveDate"]);
-  const description = props["jemp:description"];
+  const effectiveDate = formatEffectiveDate(props["eui:effectiveDate"]);
+  const description = props["eui:description"];
   const firstParagraphMatch = description?.match(/<p[^>]*>(.*?)<\/p>/i);
   const firstParagraph = firstParagraphMatch ? firstParagraphMatch[0] : undefined;
 
@@ -43,7 +43,7 @@ const CardView = (props: Props) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:policy",
+    nodeType: "euint:policy",
     name: "cm",
     displayName: "Policy - Content Manager Preview",
   },

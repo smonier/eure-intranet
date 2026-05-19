@@ -50,15 +50,15 @@ const resolveLocale = (renderContext: RenderContext) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:policy",
+    nodeType: "euint:policy",
     name: "fullPage",
     displayName: "Policy Detail - Full Page",
   },
   (rawProps: Props, { renderContext }: { renderContext: RenderContext }) => {
     const locale = resolveLocale(renderContext);
     const title = rawProps["jcr:title"];
-    const description = rawProps["jemp:description"];
-    const effectiveDate = formatEffectiveDate(rawProps["jemp:effectiveDate"], locale);
+    const description = rawProps["eui:description"];
+    const effectiveDate = formatEffectiveDate(rawProps["eui:effectiveDate"], locale);
     const leadParagraph = extractLeadParagraph(description);
 
     return (

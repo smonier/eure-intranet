@@ -1,11 +1,11 @@
 {
-  "name": "jempnt:gridRow",
+  "name": "euint:gridRow",
   "description": "Grid Row component",
   "dynamic": false,
 
   "fields": [
     {
-      "name": "jemp:columns",
+      "name": "eui:columns",
       "selectorType": "Choicelist",
       "selectorOptionsMap": {
         "allowCustomEntry": "false"

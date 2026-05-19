@@ -14,14 +14,14 @@ const formatDateTime = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:event",
+    nodeType: "euint:event",
     name: "default",
     displayName: "Event Card",
   },
   (rawProps) => {
     const props = rawProps as Props;
-    const start = formatDateTime(props["jemp:start"]);
-    const end = formatDateTime(props["jemp:end"]);
+    const start = formatDateTime(props["eui:start"]);
+    const end = formatDateTime(props["eui:end"]);
     const onlineLink = resolveLink(props);
     const onlineUrl = onlineLink.href;
     const onlineTarget = onlineLink.target ?? "_self";
@@ -30,8 +30,8 @@ jahiaComponent(
     return (
       <article className={classes.card}>
         <h2 className={classes.title}>{props["jcr:title"]}</h2>
-        {props["jemp:summary"] && <p className={classes.summary}>{props["jemp:summary"]}</p>}
-        {(start || end || props["jemp:location"]) && (
+        {props["eui:summary"] && <p className={classes.summary}>{props["eui:summary"]}</p>}
+        {(start || end || props["eui:location"]) && (
           <div className={classes.meta}>
             {start && (
               <span>
@@ -43,21 +43,21 @@ jahiaComponent(
                 {t("jemp.label.ends")}: {end}
               </span>
             )}
-            {props["jemp:location"] && (
+            {props["eui:location"] && (
               <span>
-                {t("jemp.label.location")}: {props["jemp:location"]}
+                {t("jemp.label.location")}: {props["eui:location"]}
               </span>
             )}
           </div>
         )}
-        {(onlineUrl || props["jemp:requiresRSVP"]) && (
+        {(onlineUrl || props["eui:requiresRSVP"]) && (
           <div className={classes.actions}>
             {onlineUrl && (
               <a className={classes.link} href={onlineUrl} target={onlineTarget} rel={onlineRel}>
                 {t("jemp.label.joinOnline")}
               </a>
             )}
-            {props["jemp:requiresRSVP"] && (
+            {props["eui:requiresRSVP"] && (
               <span className={classes.rsvp}>{t("jemp.label.rsvpRequired")}</span>
             )}
           </div>

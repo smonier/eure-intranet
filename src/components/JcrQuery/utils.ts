@@ -75,12 +75,12 @@ export const buildQuery = ({
 };
 
 const CONTENT_TYPE_LABELS: Record<string, string> = {
-  "jempnt:newsArticle": "News Articles",
-  "jempnt:eventCard": "Events",
-  "jempnt:policyDetail": "Policies",
-  "jempnt:knowledgeBaseArticle": "Knowledge Base Articles",
-  "jempnt:alertsBanner": "Alerts",
-  "jempnt:quickLinks": "Quick Links",
+  "euint:newsArticle": "News Articles",
+  "euint:eventCard": "Events",
+  "euint:policyDetail": "Policies",
+  "euint:knowledgeBaseArticle": "Knowledge Base Articles",
+  "euint:alertsBanner": "Alerts",
+  "euint:quickLinks": "Quick Links",
 };
 
 export const getContentTypeLabel = (type: string): string =>

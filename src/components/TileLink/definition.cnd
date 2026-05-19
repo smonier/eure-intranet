@@ -1,4 +1,4 @@
-[ jempnt:tileLink ] > jnt:content, jempmix:component, seumix:linkTo
+[ euint:tileLink ] > jnt:content, euimix:component, seumix:linkTo
  - jcr:title (string) i18n
- - jemp:description (string) i18n
- - jemp:icon (string)
+ - eui:description (string) i18n
+ - eui:icon (string)

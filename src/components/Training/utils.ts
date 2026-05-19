@@ -38,7 +38,7 @@ export const resolveLocale = (renderContext: RenderContext) => {
 };
 
 export const resolveImageUrl = (
-  image: TrainingProps["jemp:heroImage"],
+  image: TrainingProps["eui:heroImage"],
   renderContext: RenderContext,
 ) => {
   if (!image) {
@@ -99,36 +99,36 @@ export const buildJsonLd = (
   url?: string,
   imageUrl?: string,
 ) => {
-  const attendanceMode = inferAttendanceMode(props["jemp:deliveryMode"]);
-  const price = normalisePrice(props["jemp:cost"]);
+  const attendanceMode = inferAttendanceMode(props["eui:deliveryMode"]);
+  const price = normalisePrice(props["eui:cost"]);
   const base: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "TrainingEvent",
     name: props["jcr:title"],
-    description: props["jemp:description"] || props["jemp:summary"],
-    startDate: props["jemp:startDate"],
-    endDate: props["jemp:endDate"],
+    description: props["eui:description"] || props["eui:summary"],
+    startDate: props["eui:startDate"],
+    endDate: props["eui:endDate"],
     inLanguage: locale,
     eventStatus: "https://schema.org/EventScheduled",
     url: url,
     image: imageUrl,
     organizer:
-      props["jemp:providerName"] || props["jemp:providerUrl"]
+      props["eui:providerName"] || props["eui:providerUrl"]
         ? {
             "@type": "Organization",
-            name: props["jemp:providerName"],
-            url: props["jemp:providerUrl"],
+            name: props["eui:providerName"],
+            url: props["eui:providerUrl"],
           }
         : undefined,
-    location: props["jemp:location"]
+    location: props["eui:location"]
       ? {
           "@type": "Place",
-          name: props["jemp:location"],
+          name: props["eui:location"],
         }
-      : props["jemp:deliveryMode"]?.toLowerCase().includes("online")
+      : props["eui:deliveryMode"]?.toLowerCase().includes("online")
         ? {
             "@type": "VirtualLocation",
-            url: url || props["jemp:providerUrl"],
+            url: url || props["eui:providerUrl"],
           }
         : undefined,
     eventAttendanceMode: attendanceMode,

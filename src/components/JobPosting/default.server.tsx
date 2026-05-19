@@ -18,25 +18,25 @@ const metaEntries = (props: JobPostingProps, locale: string): MetaEntry[] => {
   return [
     {
       label: t("jobPosting.meta.department", "Department"),
-      value: props["jemp:department"],
+      value: props["eui:department"],
     },
     {
       label: t("jobPosting.meta.location", "Location"),
-      value: props["jemp:jobLocation"],
+      value: props["eui:jobLocation"],
     },
     {
       label: t("jobPosting.meta.employmentType", "Employment type"),
-      value: props["jemp:employmentType"],
+      value: props["eui:employmentType"],
       itemProp: "employmentType",
     },
     {
       label: t("jobPosting.meta.workplace", "Workplace"),
-      value: props["jemp:workplaceType"],
+      value: props["eui:workplaceType"],
       itemProp: "jobLocationType",
     },
     {
       label: t("jobPosting.meta.experience", "Experience level"),
-      value: props["jemp:experienceLevel"],
+      value: props["eui:experienceLevel"],
     },
     {
       label: t("jobPosting.meta.salary", "Salary"),
@@ -44,11 +44,11 @@ const metaEntries = (props: JobPostingProps, locale: string): MetaEntry[] => {
     },
     {
       label: t("jobPosting.meta.posted", "Posted"),
-      value: formatDate(props["jemp:datePosted"], locale),
+      value: formatDate(props["eui:datePosted"], locale),
     },
     {
       label: t("jobPosting.meta.validThrough", "Apply by"),
-      value: formatDate(props["jemp:validThrough"], locale),
+      value: formatDate(props["eui:validThrough"], locale),
     },
   ].filter((entry) => entry.value);
 };
@@ -56,7 +56,7 @@ const metaEntries = (props: JobPostingProps, locale: string): MetaEntry[] => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:jobPosting",
+    nodeType: "euint:jobPosting",
     name: "default",
     displayName: "Job Posting",
   },
@@ -65,26 +65,26 @@ jahiaComponent(
     const props = rawProps;
     const applyLink = resolveApplyLink(props);
     const applyUrl = applyLink.href;
-    const companyName = props["jemp:company"];
-    const companyUrl = props["jemp:companyUrl"];
+    const companyName = props["eui:company"];
+    const companyUrl = props["eui:companyUrl"];
     const kicker =
-      props["jemp:subtitle"] ||
-      [companyName, props["jemp:department"]].filter((value) => value && value.length > 0).join(" • ");
+      props["eui:subtitle"] ||
+      [companyName, props["eui:department"]].filter((value) => value && value.length > 0).join(" • ");
 
-    const summary = props["jemp:summary"];
-    const description = props["jemp:description"];
+    const summary = props["eui:summary"];
+    const description = props["eui:description"];
     const entries = metaEntries(props, locale);
     const jsonLd = buildJobPostingJsonLd(props, locale, applyUrl, t("jobPosting.schema.remoteFriendly", "Remote"));
-    const datePostedIso = toIsoDate(props["jemp:datePosted"]);
-    const validThroughIso = toIsoDate(props["jemp:validThrough"]);
+    const datePostedIso = toIsoDate(props["eui:datePosted"]);
+    const validThroughIso = toIsoDate(props["eui:validThrough"]);
 
     return (
       <article className={classes.card} itemScope itemType="https://schema.org/JobPosting">
         <header className={classes.header}>
           <div className={classes.badgeRow}>
             <span className={classes.badge}>{t("jobPosting.label.badge", "Now hiring")}</span>
-            {props["jemp:employmentType"] && <span className={classes.badge}>{props["jemp:employmentType"]}</span>}
-            {props["jemp:workplaceType"] && <span className={classes.badge}>{props["jemp:workplaceType"]}</span>}
+            {props["eui:employmentType"] && <span className={classes.badge}>{props["eui:employmentType"]}</span>}
+            {props["eui:workplaceType"] && <span className={classes.badge}>{props["eui:workplaceType"]}</span>}
           </div>
           {kicker && (
             <p className={classes.subtitle}>
@@ -133,10 +133,10 @@ jahiaComponent(
           dangerouslySetInnerHTML={{ __html: jsonLd }}
         />
 
-        {props["jemp:employmentType"] && (
-          <meta itemProp="employmentType" content={props["jemp:employmentType"]} />
+        {props["eui:employmentType"] && (
+          <meta itemProp="employmentType" content={props["eui:employmentType"]} />
         )}
-        {props["jemp:workplaceType"] && <meta itemProp="jobLocationType" content={props["jemp:workplaceType"]} />}
+        {props["eui:workplaceType"] && <meta itemProp="jobLocationType" content={props["eui:workplaceType"]} />}
         {applyUrl && <meta itemProp="directApply" content="true" />}
         {datePostedIso && <meta itemProp="datePosted" content={datePostedIso} />}
         {validThroughIso && <meta itemProp="validThrough" content={validThroughIso} />}
@@ -148,18 +148,18 @@ jahiaComponent(
           </span>
         )}
 
-        {(props["jemp:jobLocation"] ||
-          props["jemp:addressLocality"] ||
-          props["jemp:addressRegion"] ||
-          props["jemp:postalCode"] ||
-          props["jemp:country"]) && (
+        {(props["eui:jobLocation"] ||
+          props["eui:addressLocality"] ||
+          props["eui:addressRegion"] ||
+          props["eui:postalCode"] ||
+          props["eui:country"]) && (
           <span itemProp="jobLocation" itemScope itemType="https://schema.org/Place" hidden>
             <span itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-              {props["jemp:jobLocation"] && <meta itemProp="streetAddress" content={props["jemp:jobLocation"]} />}
-              {props["jemp:addressLocality"] && <meta itemProp="addressLocality" content={props["jemp:addressLocality"]} />}
-              {props["jemp:addressRegion"] && <meta itemProp="addressRegion" content={props["jemp:addressRegion"]} />}
-              {props["jemp:postalCode"] && <meta itemProp="postalCode" content={props["jemp:postalCode"]} />}
-              {props["jemp:country"] && <meta itemProp="addressCountry" content={props["jemp:country"]} />}
+              {props["eui:jobLocation"] && <meta itemProp="streetAddress" content={props["eui:jobLocation"]} />}
+              {props["eui:addressLocality"] && <meta itemProp="addressLocality" content={props["eui:addressLocality"]} />}
+              {props["eui:addressRegion"] && <meta itemProp="addressRegion" content={props["eui:addressRegion"]} />}
+              {props["eui:postalCode"] && <meta itemProp="postalCode" content={props["eui:postalCode"]} />}
+              {props["eui:country"] && <meta itemProp="addressCountry" content={props["eui:country"]} />}
             </span>
           </span>
         )}

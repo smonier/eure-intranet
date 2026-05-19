@@ -3,9 +3,9 @@ import type { JCRNodeWrapper } from "org.jahia.services.content";
 export type TileLinkProps = {
   node?: JCRNodeWrapper;
   "jcr:title": string;
-  "jemp:description"?: string;
-  "jemp:icon"?: string;
-  "jemp:url"?: string;
+  "eui:description"?: string;
+  "eui:icon"?: string;
+  "eui:url"?: string;
   "seu:linkType"?: string;
   "seu:linkTarget"?: string;
   "seu:externalLink"?: string;

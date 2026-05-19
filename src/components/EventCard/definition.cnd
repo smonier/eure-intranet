@@ -1,8 +1,8 @@
-[ jempnt:event ] > jnt:content, jmix:editorialContent, jmix:mainResource, jempmix:component, jempmix:queryContent, seumix:linkTo
+[ euint:event ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, seumix:linkTo
  - jcr:title (string) i18n
- - jemp:summary (string) i18n
- - jemp:start (date)
- - jemp:end (date)
- - jemp:location (string) i18n
- - jemp:requiresRSVP (boolean)
- - jemp:heroImage (weakreference, picker[type='image']) < 'jmix:image'
+ - eui:summary (string) i18n
+ - eui:start (date)
+ - eui:end (date)
+ - eui:location (string) i18n
+ - eui:requiresRSVP (boolean)
+ - eui:heroImage (weakreference, picker[type='image']) < 'jmix:image'

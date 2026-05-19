@@ -27,7 +27,7 @@ const formatTime = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:event",
+    nodeType: "euint:event",
     name: "card",
     displayName: "Event Card Teaser",
   },
@@ -35,8 +35,8 @@ jahiaComponent(
     const props = rawProps as Props;
     const node = currentNode as JCRNodeWrapper;
     const url = buildNodeUrl(node);
-    const startDate = formatDate(props["jemp:start"]);
-    const startTime = formatTime(props["jemp:start"]);
+    const startDate = formatDate(props["eui:start"]);
+    const startTime = formatTime(props["eui:start"]);
 
     return (
       <article className={classes.card}>
@@ -50,10 +50,10 @@ jahiaComponent(
             )}
             <div className={classes.details}>
               <h3 className={classes.title}>{props["jcr:title"]}</h3>
-              {props["jemp:location"] && (
-                <p className={classes.location}>📍 {props["jemp:location"]}</p>
+              {props["eui:location"] && (
+                <p className={classes.location}>📍 {props["eui:location"]}</p>
               )}
-              {props["jemp:summary"] && <p className={classes.summary}>{props["jemp:summary"]}</p>}
+              {props["eui:summary"] && <p className={classes.summary}>{props["eui:summary"]}</p>}
               <span className={classes.readMore}>View details →</span>
             </div>
           </div>

@@ -15,8 +15,8 @@ jahiaComponent(
   },
   ({ "jcr:title": title }: BasicPageProps) => (
     <Layout title={title}>
-      <Render content={{ nodeType: "jempnt:navBar" }} />
-      <Area name="header" allowedNodeTypes={["jempnt:hero"]} numberOfItems={1} />
+      <Render content={{ nodeType: "euint:navBar" }} />
+      <Area name="header" allowedNodeTypes={["euint:hero"]} numberOfItems={1} />
       <Area name="main" />
     </Layout>
   ),

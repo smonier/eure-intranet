@@ -7,22 +7,22 @@ import { resolveLink } from "~/utils/linkTo";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:event",
+    nodeType: "euint:event",
     name: "fullPage",
     displayName: "Event - Full Page",
   },
   (rawProps) => {
     const props = rawProps as Props;
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const startDate = props["jemp:start"];
-    const endDate = props["jemp:end"];
-    const location = props["jemp:location"];
+    const summary = props["eui:summary"];
+    const startDate = props["eui:start"];
+    const endDate = props["eui:end"];
+    const location = props["eui:location"];
     const onlineLink = resolveLink(props);
     const onlineUrl = onlineLink.href;
     const onlineTarget = onlineLink.target ?? "_blank";
     const onlineRel = onlineLink.rel ?? (onlineTarget === "_blank" ? "noopener noreferrer" : undefined);
-    const requiresRSVP = props["jemp:requiresRSVP"];
+    const requiresRSVP = props["eui:requiresRSVP"];
 
     const formatDateTime = (dateStr?: string) => {
       if (!dateStr) return null;

@@ -1,5 +1,5 @@
-[ jempnt:contributionModal ] > jnt:content, jmix:droppableContent, jempmix:component
+[ euint:contributionModal ] > jnt:content, jmix:droppableContent, euimix:component
  - jcr:title (string) i18n
- - jemp:description (string, richtext) i18n
- - jemp:buttonLabel (string) i18n
+ - eui:description (string, richtext) i18n
+ - eui:buttonLabel (string) i18n
  + modalContent (jnt:contentList) = jnt:contentList autocreated

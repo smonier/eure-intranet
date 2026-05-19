@@ -16,7 +16,7 @@ import type { JcrQueryProps } from "./types";
 
 jahiaComponent(
   {
-    nodeType: "jempnt:jcrQuery",
+    nodeType: "euint:jcrQuery",
     name: "carousel",
     componentType: "view",
     displayName: "JCR Query - Carousel",

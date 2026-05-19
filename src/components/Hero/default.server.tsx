@@ -6,7 +6,7 @@ import type { HeroProps } from "./types.js";
 import classes from "./component.module.css";
 
 const resolveImageUrl = (
-  image: HeroProps["jemp:backgroundImage"],
+  image: HeroProps["eui:backgroundImage"],
   renderContext?: RenderContext,
 ) => {
   if (!image) return null;
@@ -26,7 +26,7 @@ const resolveImageUrl = (
 };
 
 const resolveLink = (props: HeroProps) => {
-  const directUrl = typeof props["jemp:url"] === "string" ? props["jemp:url"] : null;
+  const directUrl = typeof props["eui:url"] === "string" ? props["eui:url"] : null;
   const { "seu:linkType": linkType, "seu:externalLink": external, "seu:internalLink": internal } = props;
 
   if (linkType === "externalLink" && typeof external === "string") {
@@ -63,16 +63,16 @@ const resolveLink = (props: HeroProps) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:hero",
+    nodeType: "euint:hero",
     name: "default",
     displayName: "Hero Banner",
   },
   (props: HeroProps, { renderContext }: { renderContext: RenderContext }) => {
     const title = props["jcr:title"];
-    const subtitle = props["jemp:subtitle"];
-    const ctaLabelRaw = typeof props["jemp:ctaLabel"] === "string" ? props["jemp:ctaLabel"].trim() : "";
+    const subtitle = props["eui:subtitle"];
+    const ctaLabelRaw = typeof props["eui:ctaLabel"] === "string" ? props["eui:ctaLabel"].trim() : "";
     const hasCtaLabel = Boolean(ctaLabelRaw);
-    const backgroundUrl = resolveImageUrl(props["jemp:backgroundImage"], renderContext);
+    const backgroundUrl = resolveImageUrl(props["eui:backgroundImage"], renderContext);
     const href = resolveLink(props);
     const hasLink = Boolean(href);
     const linkTarget =

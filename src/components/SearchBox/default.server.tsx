@@ -10,12 +10,12 @@ import classes from "./component.module.css";
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:searchBox",
+    nodeType: "euint:searchBox",
     displayName: "Search Box",
   },
   ({ node }: { node?: JCRNodeWrapper }) => {
-    const placeholder = node?.hasProperty("jemp:placeholder")
-      ? node.getProperty("jemp:placeholder").getString()
+    const placeholder = node?.hasProperty("eui:placeholder")
+      ? node.getProperty("eui:placeholder").getString()
       : t("search.placeholder");
     const formAriaLabel = t("search.formAriaLabel", "Site search");
     const submitLabel = t("search.submitLabel", "Search");

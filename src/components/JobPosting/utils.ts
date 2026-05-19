@@ -63,13 +63,13 @@ export const stripHtml = (value: string | undefined) => {
 };
 
 export const formatSalary = (props: JobPostingProps, locale: string) => {
-  if (props["jemp:salaryRange"]) {
-    return props["jemp:salaryRange"];
+  if (props["eui:salaryRange"]) {
+    return props["eui:salaryRange"];
   }
 
-  const currency = props["jemp:salaryCurrency"];
-  const min = toNumber(props["jemp:salaryMin"]);
-  const max = toNumber(props["jemp:salaryMax"]);
+  const currency = props["eui:salaryCurrency"];
+  const min = toNumber(props["eui:salaryMin"]);
+  const max = toNumber(props["eui:salaryMax"]);
 
   if (!currency || (min === undefined && max === undefined)) {
     return undefined;
@@ -117,7 +117,7 @@ export const resolveApplyLink = (props: JobPostingProps): ResolvedLink => {
     props["seu:linkTarget"] && props["seu:linkTarget"] !== "_self"
       ? props["seu:linkTarget"]
       : undefined;
-  const directUrl = typeof props["jemp:applyUrl"] === "string" ? props["jemp:applyUrl"] : undefined;
+  const directUrl = typeof props["eui:applyUrl"] === "string" ? props["eui:applyUrl"] : undefined;
   const internalLink = props["seu:internalLink"];
   const externalLink = props["seu:externalLink"];
 
@@ -198,43 +198,43 @@ export const buildJobPostingJsonLd = (
   applyUrl?: string,
   remoteLabel?: string,
 ) => {
-  const datePostedIso = toIsoDate(props["jemp:datePosted"]);
-  const validThroughIso = toIsoDate(props["jemp:validThrough"]);
-  const minSalary = toNumber(props["jemp:salaryMin"]);
-  const maxSalary = toNumber(props["jemp:salaryMax"]);
+  const datePostedIso = toIsoDate(props["eui:datePosted"]);
+  const validThroughIso = toIsoDate(props["eui:validThrough"]);
+  const minSalary = toNumber(props["eui:salaryMin"]);
+  const maxSalary = toNumber(props["eui:salaryMax"]);
 
   const hiringOrganization =
-    props["jemp:company"] || props["jemp:companyUrl"]
+    props["eui:company"] || props["eui:companyUrl"]
       ? compactObject({
           "@type": "Organization",
-          name: props["jemp:company"],
-          sameAs: props["jemp:companyUrl"],
+          name: props["eui:company"],
+          sameAs: props["eui:companyUrl"],
         })
       : undefined;
 
   const jobLocation =
-    props["jemp:jobLocation"] ||
-    props["jemp:addressLocality"] ||
-    props["jemp:country"] ||
-    props["jemp:postalCode"]
+    props["eui:jobLocation"] ||
+    props["eui:addressLocality"] ||
+    props["eui:country"] ||
+    props["eui:postalCode"]
       ? compactObject({
           "@type": "Place",
           address: compactObject({
             "@type": "PostalAddress",
-            streetAddress: props["jemp:jobLocation"],
-            addressLocality: props["jemp:addressLocality"],
-            addressRegion: props["jemp:addressRegion"],
-            postalCode: props["jemp:postalCode"],
-            addressCountry: props["jemp:country"],
+            streetAddress: props["eui:jobLocation"],
+            addressLocality: props["eui:addressLocality"],
+            addressRegion: props["eui:addressRegion"],
+            postalCode: props["eui:postalCode"],
+            addressCountry: props["eui:country"],
           }),
         })
       : undefined;
 
   const baseSalary =
-    props["jemp:salaryCurrency"] && (minSalary !== undefined || maxSalary !== undefined)
+    props["eui:salaryCurrency"] && (minSalary !== undefined || maxSalary !== undefined)
       ? compactObject({
           "@type": "MonetaryAmount",
-          currency: props["jemp:salaryCurrency"],
+          currency: props["eui:salaryCurrency"],
           value: compactObject({
             "@type": "QuantitativeValue",
             minValue: minSalary,
@@ -248,27 +248,27 @@ export const buildJobPostingJsonLd = (
     "@context": "https://schema.org",
     "@type": "JobPosting",
     title: props["jcr:title"],
-    description: stripHtml(props["jemp:description"] || props["jemp:summary"]),
+    description: stripHtml(props["eui:description"] || props["eui:summary"]),
     datePosted: datePostedIso,
     validThrough: validThroughIso,
-    employmentType: props["jemp:employmentType"],
-    jobLocationType: props["jemp:workplaceType"],
+    employmentType: props["eui:employmentType"],
+    jobLocationType: props["eui:workplaceType"],
     jobLocation,
     hiringOrganization,
-    occupationalCategory: props["jemp:department"],
-    educationRequirements: props["jemp:experienceLevel"],
+    occupationalCategory: props["eui:department"],
+    educationRequirements: props["eui:experienceLevel"],
     identifier:
-      props["jemp:jobId"] || props["jemp:company"]
+      props["eui:jobId"] || props["eui:company"]
         ? compactObject({
             "@type": "PropertyValue",
-            name: props["jemp:company"],
-            value: props["jemp:jobId"],
+            name: props["eui:company"],
+            value: props["eui:jobId"],
           })
         : undefined,
     baseSalary,
     directApply: Boolean(applyUrl),
     applicantLocationRequirements:
-      props["jemp:workplaceType"] && props["jemp:workplaceType"].toLowerCase().includes("remote")
+      props["eui:workplaceType"] && props["eui:workplaceType"].toLowerCase().includes("remote")
         ? [
             compactObject({
               "@type": "Country",
@@ -276,7 +276,7 @@ export const buildJobPostingJsonLd = (
             }),
           ]
         : undefined,
-    industry: props["jemp:department"],
+    industry: props["eui:department"],
     inLanguage: locale,
   });
 

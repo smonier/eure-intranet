@@ -22,16 +22,16 @@ const formatDate = (value?: string) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:kbArticle",
+    nodeType: "euint:kbArticle",
     name: "card",
     displayName: "Knowledge Base Article Card",
   },
   (rawProps: Props, { currentNode }) => {
     const node = currentNode as JCRNodeWrapper;
     const title = rawProps["jcr:title"];
-    const problem = rawProps["jemp:problem"];
-    const platform = rawProps["jemp:platform"];
-    const lastReviewed = formatDate(rawProps["jemp:lastReviewed"]);
+    const problem = rawProps["eui:problem"];
+    const platform = rawProps["eui:platform"];
+    const lastReviewed = formatDate(rawProps["eui:lastReviewed"]);
     const href = buildNodeUrl(node);
 
     return (

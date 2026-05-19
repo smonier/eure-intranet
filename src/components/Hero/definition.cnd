@@ -1,5 +1,5 @@
-[ jempnt:hero ] > jnt:content, jempmix:component, seumix:linkTo
+[ euint:hero ] > jnt:content, euimix:component, seumix:linkTo
  - jcr:title (string) i18n
- - jemp:subtitle (string) i18n
- - jemp:ctaLabel (string) i18n
- - jemp:backgroundImage (weakreference, picker[type='image']) < 'jmix:image'
+ - eui:subtitle (string) i18n
+ - eui:ctaLabel (string) i18n
+ - eui:backgroundImage (weakreference, picker[type='image']) < 'jmix:image'

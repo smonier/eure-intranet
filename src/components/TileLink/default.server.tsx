@@ -33,7 +33,7 @@ const resolveHref = (props: TileLinkProps) => {
     "seu:externalLink": externalLink,
     "seu:internalLink": internalLink,
   } = props;
-  let href = props["jemp:url"] || "";
+  let href = props["eui:url"] || "";
 
   if (linkType === "externalLink" && externalLink) {
     href = externalLink;
@@ -63,15 +63,15 @@ const resolveHref = (props: TileLinkProps) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:tileLink",
+    nodeType: "euint:tileLink",
     name: "default",
     displayName: "Tile Link",
   },
   (props: TileLinkProps) => {
     const {
       "jcr:title": title,
-      "jemp:description": description,
-      "jemp:icon": iconKey,
+      "eui:description": description,
+      "eui:icon": iconKey,
       "seu:linkTarget": linkTarget,
     } = props;
 

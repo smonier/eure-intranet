@@ -1,2 +1,2 @@
-[ jempnt:userDirectory ] > jnt:content, jmix:editorialContent, mix:title, jempmix:component
- - jemp:subtitle (string) i18n
+[ euint:userDirectory ] > jnt:content, jmix:editorialContent, mix:title, euimix:component
+ - eui:subtitle (string) i18n

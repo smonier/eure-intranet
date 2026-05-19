@@ -19,7 +19,7 @@ const getChildPages = (node: JCRNodeWrapper) =>
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:navBar",
+    nodeType: "euint:navBar",
     displayName: "NavBar",
   },
   (_, { renderContext, mainNode }) => {

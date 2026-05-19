@@ -1,23 +1,23 @@
-[ jempnt:jobPosting ] > jnt:content, jmix:editorialContent, jmix:mainResource, mix:title, jempmix:component, jempmix:queryContent, seumix:linkTo
+[ euint:jobPosting ] > jnt:content, jmix:editorialContent, jmix:mainResource, mix:title, euimix:component, euimix:queryContent, seumix:linkTo
  - jcr:title (string) i18n
- - jemp:subtitle (string) i18n
- - jemp:summary (string) i18n
- - jemp:description (string) i18n
- - jemp:department (string) i18n
- - jemp:employmentType (string)
- - jemp:workplaceType (string)
- - jemp:experienceLevel (string)
- - jemp:jobLocation (string) i18n
- - jemp:addressLocality (string) i18n
- - jemp:addressRegion (string) i18n
- - jemp:postalCode (string)
- - jemp:country (string)
- - jemp:salaryRange (string)
- - jemp:salaryCurrency (string)
- - jemp:salaryMin (string)
- - jemp:salaryMax (string)
- - jemp:datePosted (date)
- - jemp:validThrough (date)
- - jemp:company (string) i18n
- - jemp:companyUrl (string)
- - jemp:jobId (string)
+ - eui:subtitle (string) i18n
+ - eui:summary (string) i18n
+ - eui:description (string) i18n
+ - eui:department (string) i18n
+ - eui:employmentType (string)
+ - eui:workplaceType (string)
+ - eui:experienceLevel (string)
+ - eui:jobLocation (string) i18n
+ - eui:addressLocality (string) i18n
+ - eui:addressRegion (string) i18n
+ - eui:postalCode (string)
+ - eui:country (string)
+ - eui:salaryRange (string)
+ - eui:salaryCurrency (string)
+ - eui:salaryMin (string)
+ - eui:salaryMax (string)
+ - eui:datePosted (date)
+ - eui:validThrough (date)
+ - eui:company (string) i18n
+ - eui:companyUrl (string)
+ - eui:jobId (string)

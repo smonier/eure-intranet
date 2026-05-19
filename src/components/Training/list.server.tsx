@@ -20,7 +20,7 @@ const resolveDetailUrl = (
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:training",
+    nodeType: "euint:training",
     name: "list",
     displayName: "Training List Item",
   },
@@ -29,11 +29,11 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const provider = props["jemp:providerName"];
-    const delivery = props["jemp:deliveryMode"];
-    const startDate = formatDateTime(props["jemp:startDate"], locale);
-    const registrationLink = resolveLink(props, props["jemp:providerUrl"]);
+    const summary = props["eui:summary"];
+    const provider = props["eui:providerName"];
+    const delivery = props["eui:deliveryMode"];
+    const startDate = formatDateTime(props["eui:startDate"], locale);
+    const registrationLink = resolveLink(props, props["eui:providerUrl"]);
     const ctaUrl = registrationLink.href;
     const detailUrl = resolveDetailUrl(currentNode as JCRNodeWrapper | undefined, ctaUrl);
     const isDirectRegistrationLink = Boolean(detailUrl && ctaUrl && detailUrl === ctaUrl);

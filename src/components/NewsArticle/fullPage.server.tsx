@@ -1,24 +1,23 @@
-import { jahiaComponent } from "@jahia/javascript-modules-library";
+import { jahiaComponent, buildNodeUrl } from "@jahia/javascript-modules-library";
 import type { Props } from "./types.js";
 import classes from "./fullPage.module.css";
 
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:news",
+    nodeType: "euint:news",
     name: "fullPage",
     displayName: "News Article - Full Page",
   },
   (rawProps) => {
     const props = rawProps as unknown as Props;
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const body = props["jemp:body"];
-    const heroImage = props["jemp:heroImage"];
-    const publishDate = props["jemp:publishDate"];
+    const summary = props["eui:summary"];
+    const body = props["eui:body"];
+    const heroImage = props["eui:heroImage"];
+    const publishDate = props["eui:publishDate"];
 
     // Get image URL from the file node path
-    const imageUrl = heroImage?.getPath ? `/files/default${heroImage.getPath()}` : null;
     const formattedDate = publishDate
       ? new Date(publishDate).toLocaleDateString("en-US", {
           year: "numeric",
@@ -30,10 +29,10 @@ jahiaComponent(
     return (
       <article className={classes.article}>
         {/* Hero Section */}
-        {imageUrl && (
+        {heroImage && (
           <div className={classes.hero}>
             <div className={classes.heroOverlay} />
-            <img src={imageUrl} alt={title} className={classes.heroImage} />
+            <img src={buildNodeUrl(heroImage)} alt={title} className={classes.heroImage} />
             <div className={classes.heroContent}>
               <div className={classes.container}>
                 {formattedDate && (
@@ -52,7 +51,7 @@ jahiaComponent(
         <div className={classes.content}>
           <div className={classes.container}>
             {/* Title for articles without hero image */}
-            {!imageUrl && (
+            {!heroImage && (
               <header className={classes.header}>
                 {formattedDate && (
                   <time className={classes.publishDate} dateTime={publishDate}>

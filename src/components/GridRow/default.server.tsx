@@ -20,7 +20,7 @@ const getColumnCount = (raw: unknown) => {
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:gridRow",
+    nodeType: "euint:gridRow",
     name: "default",
     displayName: "Grid Row",
   },
@@ -31,7 +31,7 @@ jahiaComponent(
       currentNode,
     }: { renderContext: RenderContext; currentNode: JCRNodeWrapper },
   ) => {
-    const columns = getColumnCount(props["jemp:columns"]);
+    const columns = getColumnCount(props["eui:columns"]);
     const isEditMode = renderContext.isEditMode();
     const nodeId =
       currentNode && typeof currentNode.getIdentifier === "function"

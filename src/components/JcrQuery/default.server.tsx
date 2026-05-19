@@ -15,7 +15,7 @@ import { Col, HeadingSection, Row } from "~/components/shared";
 
 jahiaComponent(
   {
-    nodeType: "jempnt:jcrQuery",
+    nodeType: "euint:jcrQuery",
     name: "default",
     componentType: "view",
   },

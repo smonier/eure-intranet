@@ -15,7 +15,7 @@ import infoClasses from "./default.module.css";
 
 jahiaComponent(
   {
-    nodeType: "jempnt:jcrQuery",
+    nodeType: "euint:jcrQuery",
     name: "inline",
     displayName: "Inline Result",
     componentType: "view",

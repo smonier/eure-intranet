@@ -296,12 +296,12 @@ const renderCategory = (category: HrCategory, employees: EmployeeRecord[], local
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:hrInsights",
+    nodeType: "euint:hrInsights",
     name: "default",
     displayName: "HR Insights",
   },
   (props: HrInsightsProps, { renderContext }: { renderContext: RenderContext }) => {
-    const category = (props["jemp:category"] || "payslips") as HrCategory;
+    const category = (props["eui:category"] || "payslips") as HrCategory;
     const categoryMeta = CATEGORY_METADATA[category];
 
     const contextWithLocale = renderContext as unknown as {
@@ -328,7 +328,7 @@ jahiaComponent(
       t(DEFAULT_TITLE_KEY, { defaultValue: DEFAULT_TITLE_FALLBACK });
 
     const description =
-      props["jemp:description"] ||
+      props["eui:description"] ||
       (categoryMeta
         ? t(categoryMeta.descriptionKey, { defaultValue: categoryMeta.fallbackDescription })
         : "");

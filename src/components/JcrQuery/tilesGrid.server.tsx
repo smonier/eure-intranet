@@ -17,7 +17,7 @@ import infoClasses from "./default.module.css";
 
 jahiaComponent(
   {
-    nodeType: "jempnt:jcrQuery",
+    nodeType: "euint:jcrQuery",
     name: "tilesGrid",
     displayName: "Tiles Grid",
     componentType: "view",

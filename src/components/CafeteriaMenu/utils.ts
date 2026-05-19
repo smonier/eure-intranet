@@ -213,7 +213,7 @@ export const collectMenuItems = (nodes: JCRNodeWrapper[]): JCRNodeWrapper[] => {
   const items: JCRNodeWrapper[] = [];
   nodes.forEach((node) => {
     try {
-      if (node.isNodeType("jempnt:cafeteriaMenuItem")) {
+      if (node.isNodeType("euint:cafeteriaMenuItem")) {
         items.push(node);
         return;
       }
@@ -283,21 +283,21 @@ export const toMenuItem = (
   const props = getNodeProps<{
     "jcr:uuid"?: string;
     "jcr:title"?: string;
-    "jemp:menuDate"?: string;
-    "jemp:isVegan"?: string | boolean;
-    "jemp:allergens"?: string | string[];
-    "jemp:dishes"?: string;
-    "jemp:calories"?: string;
-    "jemp:image"?: string;
+    "eui:menuDate"?: string;
+    "eui:isVegan"?: string | boolean;
+    "eui:allergens"?: string | string[];
+    "eui:dishes"?: string;
+    "eui:calories"?: string;
+    "eui:image"?: string;
   }>(node, [
     "jcr:uuid",
     "jcr:title",
-    "jemp:menuDate",
-    "jemp:isVegan",
-    "jemp:allergens",
-    "jemp:dishes",
-    "jemp:calories",
-    "jemp:image",
+    "eui:menuDate",
+    "eui:isVegan",
+    "eui:allergens",
+    "eui:dishes",
+    "eui:calories",
+    "eui:image",
   ]);
 
   const id =
@@ -329,9 +329,9 @@ export const toMenuItem = (
     })() ||
     id;
 
-  const rawMenuDate = props["jemp:menuDate"];
+  const rawMenuDate = props["eui:menuDate"];
   const menuDate = normaliseMenuDate(rawMenuDate);
-  const isVeganRaw = props["jemp:isVegan"];
+  const isVeganRaw = props["eui:isVegan"];
   const isVegan =
     typeof isVeganRaw === "boolean"
       ? isVeganRaw
@@ -339,12 +339,12 @@ export const toMenuItem = (
         ? isVeganRaw === "true"
         : false;
 
-  const allergens = resolveLocalizedStringList(props["jemp:allergens"], locale);
+  const allergens = resolveLocalizedStringList(props["eui:allergens"], locale);
 
-  const dishesRaw = resolveLocalizedString(props["jemp:dishes"], locale);
+  const dishesRaw = resolveLocalizedString(props["eui:dishes"], locale);
   const dishes = sanitiseRichText(dishesRaw);
-  const calories = resolveLocalizedString(props["jemp:calories"], locale) || undefined;
-  const imageUrl = resolveImageUrl(props["jemp:image"]);
+  const calories = resolveLocalizedString(props["eui:calories"], locale) || undefined;
+  const imageUrl = resolveImageUrl(props["eui:image"]);
 
   return {
     id,

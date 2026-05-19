@@ -19,7 +19,7 @@ const resolveDetailUrl = (
 jahiaComponent(
   {
     componentType: "view",
-    nodeType: "jempnt:jobPosting",
+    nodeType: "euint:jobPosting",
     name: "list",
     displayName: "Job Posting - List Item",
   },
@@ -28,14 +28,14 @@ jahiaComponent(
     const props = rawProps;
 
     const title = props["jcr:title"];
-    const summary = props["jemp:summary"];
-    const company = props["jemp:company"];
-    const employmentType = props["jemp:employmentType"];
-    const workplace = props["jemp:workplaceType"];
-    const location = props["jemp:jobLocation"] || props["jemp:addressLocality"];
+    const summary = props["eui:summary"];
+    const company = props["eui:company"];
+    const employmentType = props["eui:employmentType"];
+    const workplace = props["eui:workplaceType"];
+    const location = props["eui:jobLocation"] || props["eui:addressLocality"];
     const salary = formatSalary(props, locale);
-    const experience = props["jemp:experienceLevel"];
-    const postedDate = formatDate(props["jemp:datePosted"], locale);
+    const experience = props["eui:experienceLevel"];
+    const postedDate = formatDate(props["eui:datePosted"], locale);
     const applyLink = resolveApplyLink(props);
     const ctaUrl = applyLink.href;
     const detailUrl = resolveDetailUrl(currentNode as JCRNodeWrapper | undefined, ctaUrl);
