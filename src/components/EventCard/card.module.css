@@ -8,7 +8,7 @@
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  border-left: 4px solid var(--luxe-color-primary, #007bff);
+  border-left: 4px solid var(--eui-color-accent);
 }
 
 .card:hover {
@@ -38,7 +38,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: #f8f9fa;
+  background: var(--eui-bg-secondary);
   border-radius: 8px;
   min-width: 100px;
   text-align: center;
@@ -47,13 +47,13 @@
 .date {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--luxe-color-primary, #007bff);
+  color: var(--eui-color-accent);
   display: block;
 }
 
 .time {
   font-size: 0.75rem;
-  color: #666;
+  color: var(--eui-color-text-muted);
   margin-top: 0.25rem;
   display: block;
 }
@@ -69,19 +69,19 @@
   font-size: 1.125rem;
   font-weight: 600;
   margin: 0;
-  color: #1a1a1a;
+  color: var(--eui-color-heading);
   line-height: 1.4;
 }
 
 .location {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--eui-color-text-muted);
   margin: 0;
 }
 
 .summary {
   font-size: 0.95rem;
-  color: #555;
+  color: var(--eui-color-text);
   margin: 0;
   line-height: 1.6;
   display: -webkit-box;
@@ -92,7 +92,7 @@
 
 .readMore {
   margin-top: auto;
-  color: var(--luxe-color-primary, #007bff);
+  color: var(--eui-color-accent);
   font-weight: 500;
   font-size: 0.9rem;
 }

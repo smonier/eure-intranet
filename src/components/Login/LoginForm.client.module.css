@@ -7,7 +7,7 @@
   width: 100%;
   pointer-events: auto;
   background: #ffffff;
-  color: #0f172a;
+  color: var(--eui-color-heading);
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 24px;
   box-shadow:
@@ -59,11 +59,11 @@
 
   > h3 {
     margin: 0;
-    color: #0f172a;
+    color: var(--eui-color-heading);
   }
 
   > p {
-    color: #475569;
+    color: var(--eui-color-text-muted);
     font-size: 0.9375rem;
     margin: 0;
   }
@@ -83,11 +83,11 @@
 
   > h3 {
     margin: 0;
-    color: #0f172a;
+    color: var(--eui-color-heading);
   }
 
   > p {
-    color: #475569;
+    color: var(--eui-color-text-muted);
     font-size: 0.9375rem;
     margin: 0;
   }
@@ -100,7 +100,7 @@
 .label {
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }
 
 .btn {
@@ -135,7 +135,7 @@
   border-radius: 14px;
   border: 1px solid rgba(148, 163, 184, 0.4);
   background: #ffffff;
-  color: #0f172a;
+  color: var(--eui-color-heading);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -157,7 +157,7 @@
   min-height: 1.5rem;
   padding-left: 1.5em;
   margin-bottom: 0.125rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }
 
 .formCheckInput {
@@ -198,5 +198,5 @@
 .formCheckLabel {
   text-transform: capitalize;
   font-size: 0.875rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }

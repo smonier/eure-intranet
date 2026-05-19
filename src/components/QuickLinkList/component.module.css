@@ -11,7 +11,7 @@
   margin: 0 0 16px;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--jemp-text-strong, #0f172a);
+  color: var(--jemp-text-strong, var(--eui-color-heading));
 }
 
 .grid {
@@ -38,7 +38,7 @@
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
   box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.2);
   background: var(--jemp-link-bg, #eff6ff);
-  color: var(--jemp-link-fg, #0f172a);
+  color: var(--jemp-link-fg, var(--eui-color-heading));
 }
 
 .link:hover,
@@ -51,12 +51,12 @@
 
 .icon {
   font-size: 1.3rem;
-  color: var(--jemp-link-icon, #2563eb);
+  color: var(--jemp-link-icon, var(--eui-color-info));
   display: inline-flex;
 }
 
 .label {
   font-weight: 600;
-  color: var(--jemp-link-fg, #0f172a);
+  color: var(--jemp-link-fg, var(--eui-color-heading));
   letter-spacing: 0.01em;
 }

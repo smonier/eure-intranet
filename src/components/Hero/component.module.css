@@ -2,25 +2,26 @@
   position: relative;
   display: grid;
   align-items: center;
-  min-height: clamp(22rem, 55vh, 32rem);
-  padding: clamp(2.5rem, 6vw, 4rem) clamp(2rem, 7vw, 6rem);
-  margin: 0 auto;
+  min-height: clamp(18rem, 45vh, 28rem);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 6vw, 5rem);
   overflow: hidden;
-  color: #f8fafc;
-  background: linear-gradient(135deg, #1e293b 0%, #334155 35%, #0f172a 100%);
+  color: var(--eui-color-on-primary);
+  background: linear-gradient(135deg, var(--eui-color-primary) 0%, var(--eui-color-primary-dark) 60%, #0a1628 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow:
-    0 20px 60px rgba(15, 23, 42, 0.25),
-    0 8px 24px rgba(15, 23, 42, 0.12);
 }
 
 .root::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.45) 55%, rgba(15, 23, 42, 0.25) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(13, 31, 55, 0.7) 0%,
+    rgba(28, 63, 110, 0.4) 55%,
+    rgba(13, 31, 55, 0.2) 100%
+  );
   z-index: 0;
 }
 
@@ -28,107 +29,98 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: clamp(1rem, 3vw, 1.75rem);
-  max-width: 40rem;
+  gap: clamp(0.75rem, 2.5vw, 1.5rem);
+  max-width: 44rem;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(148, 163, 184, 0.25);
-  backdrop-filter: blur(6px);
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--eui-radius-full);
+  background: rgba(244, 196, 48, 0.2);
+  border: 1px solid rgba(244, 196, 48, 0.4);
+  font-size: var(--eui-font-size-xs);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 600;
-  color: rgba(226, 232, 240, 0.9);
+  font-weight: 700;
+  color: var(--eui-color-accent);
 }
 
 .eyebrow span {
-  width: 0.35rem;
-  height: 0.35rem;
+  width: 0.3rem;
+  height: 0.3rem;
   border-radius: 50%;
-  background: rgba(148, 163, 184, 0.65);
+  background: var(--eui-color-accent);
 }
 
 .title {
   margin: 0;
-  font-size: clamp(2.5rem, 6vw, 3.75rem);
-  line-height: 1.05;
-  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  font-weight: 800;
   letter-spacing: -0.01em;
+  color: #fff;
 }
 
 .subtitle {
   margin: 0;
-  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
-  line-height: 1.7;
-  color: rgba(226, 232, 240, 0.88);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .ctaRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 0.75rem;
   align-items: center;
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1.75rem;
-  border-radius: 999px;
-  border: none;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--eui-radius-full);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: var(--eui-font-size-sm);
   letter-spacing: 0.02em;
-  color: #0f172a;
-  background: #e2e8f0;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 14px 30px rgba(148, 163, 184, 0.25);
+  color: var(--eui-color-on-accent);
+  background: var(--eui-color-accent);
+  transition: transform var(--eui-transition), box-shadow var(--eui-transition);
+  box-shadow: 0 6px 20px rgba(244, 196, 48, 0.35);
 }
 
 .cta:hover,
 .cta:focus-visible {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 36px rgba(148, 163, 184, 0.32);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(244, 196, 48, 0.45);
+  color: var(--eui-color-on-accent);
 }
 
 .cta svg {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1rem;
+  height: 1rem;
 }
 
 .ctaStatic {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1.75rem;
-  border-radius: 999px;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--eui-radius-full);
   font-weight: 600;
-  letter-spacing: 0.02em;
-  color: rgba(226, 232, 240, 0.9);
-  background: rgba(226, 232, 240, 0.18);
-  border: 1px solid rgba(241, 245, 249, 0.35);
-  box-shadow: 0 10px 28px rgba(148, 163, 184, 0.18);
-}
-
-.fallbackNote {
-  font-size: 0.9rem;
-  color: rgba(226, 232, 240, 0.75);
+  font-size: var(--eui-font-size-sm);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 @media (max-width: 768px) {
   .root {
-    padding: clamp(2rem, 8vw, 3rem) clamp(1.5rem, 7vw, 2rem);
-  }
-
-  .content {
-    gap: 1.5rem;
+    padding: clamp(1.5rem, 7vw, 2.5rem) clamp(1rem, 6vw, 1.5rem);
   }
 }

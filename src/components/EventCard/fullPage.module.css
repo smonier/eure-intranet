@@ -1,6 +1,6 @@
 .event {
   min-height: 100vh;
-  background: #f8f9fa;
+  background: var(--eui-bg-secondary);
 }
 
 /* Hero Section */

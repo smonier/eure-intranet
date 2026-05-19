@@ -13,7 +13,7 @@
 
 .title::after {
   content: "✦";
-  color: var(--luxe-color-primary);
+  color: var(--eui-color-accent);
   font-size: 0.4em;
   margin-left: 4px;
 }

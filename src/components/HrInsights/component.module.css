@@ -1,5 +1,5 @@
 .root {
-  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  background: linear-gradient(180deg, var(--eui-bg-secondary) 0%, #eef2ff 100%);
   color: #1f2937;
   padding: 2.5rem;
   border-radius: 28px;
@@ -24,7 +24,7 @@
 
 .description {
   margin: 0;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   line-height: 1.7;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .table tbody tr:nth-child(even) {
-  background: #f8fafc;
+  background: var(--eui-bg-secondary);
 }
 
 .table tbody tr:nth-child(odd) {
@@ -156,7 +156,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #64748b;
+  color: var(--eui-color-text-muted);
 }
 
 .metricValue {
@@ -201,7 +201,7 @@
   border-radius: 16px;
   background: #f1f5f9;
   border: 1px dashed rgba(148, 163, 184, 0.3);
-  color: #475569;
+  color: var(--eui-color-text-muted);
   font-style: italic;
 }
 

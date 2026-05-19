@@ -10,7 +10,7 @@
 .btn {
   background: none;
   border: none;
-  color: #f8fafc;
+  color: var(--eui-bg-secondary);
   text-decoration: underline;
   font-weight: 600;
   padding: 0;
@@ -86,7 +86,7 @@
   display: grid;
   place-items: center;
   font-size: 1.4rem;
-  color: #0f172a;
+  color: var(--eui-color-heading);
   background: rgba(248, 250, 252, 0.85);
   cursor: pointer;
   transition:
@@ -131,7 +131,7 @@
     0 18px 40px rgba(15, 23, 42, 0.1),
     0 6px 18px rgba(15, 23, 42, 0.08);
   text-align: center;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .loggedHeader {
@@ -150,7 +150,7 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
-  color: #2563eb;
+  color: var(--eui-color-info);
 }
 
 .loggedName {
@@ -162,7 +162,7 @@
 
 .loggedSubtitle {
   margin: 0;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
 }

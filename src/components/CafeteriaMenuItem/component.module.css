@@ -42,7 +42,7 @@
   margin: 0;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .chips {
@@ -60,7 +60,7 @@
   font-size: 0.78rem;
   font-weight: 600;
   background: rgba(37, 99, 235, 0.12);
-  color: var(--portal-color-accent, #2563eb);
+  color: var(--portal-color-accent, var(--eui-color-info));
 }
 
 .vegan {
@@ -69,7 +69,7 @@
 }
 
 .body {
-  color: #475569;
+  color: var(--eui-color-text-muted);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -93,7 +93,7 @@
   height: 400px;
   overflow: hidden;
   border-radius: 0 0 36px 36px;
-  background: linear-gradient(160deg, #0f172a, #1d4ed8 65%, #22d3ee);
+  background: linear-gradient(160deg, var(--eui-color-heading), var(--eui-color-primary) 65%, #22d3ee);
 }
 
 .hero img {
@@ -177,7 +177,7 @@
 .allergens h2 {
   margin: 0;
   font-size: 1.2rem;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 @media (max-width: 768px) {

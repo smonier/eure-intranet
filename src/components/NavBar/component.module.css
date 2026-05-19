@@ -186,7 +186,7 @@
 
 .dropdownLink:hover,
 .dropdownLink:focus {
-  background: #f0f4f8;
+  background: var(--eui-bg-tertiary);
   color: #F4C430;
   padding-left: 2rem;
 }
@@ -194,7 +194,7 @@
 .dropdownLink[aria-current="page"] {
   color: #F4C430;
   font-weight: 700;
-  background: #f0f4f8;
+  background: var(--eui-bg-tertiary);
 }
 
 /* Tablet Styles */

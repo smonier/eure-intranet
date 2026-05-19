@@ -55,7 +55,7 @@
 
 .meta {
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -64,7 +64,7 @@
 .summary {
   margin: 0;
   font-size: 0.9rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   line-height: 1.6;
 }
 
@@ -75,7 +75,7 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #2563eb;
+  color: var(--eui-color-info);
   font-weight: 600;
 }
 
@@ -83,5 +83,5 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  color: #2563eb;
+  color: var(--eui-color-info);
 }

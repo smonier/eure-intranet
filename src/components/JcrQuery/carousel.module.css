@@ -8,7 +8,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: var(--luxe-color-darkBlue, #1a1a2e);
+  color: var(--eui-color-heading);
 }
 
 .carouselContainer {
@@ -22,7 +22,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  background: #f8f9fa;
+  background: var(--eui-bg-secondary);
 }
 
 .carouselTrack {
@@ -106,7 +106,7 @@
 }
 
 .indicator[data-active="true"] {
-  background: var(--luxe-color-purple, #667eea);
+  background: var(--eui-color-purple);
   width: 2rem;
   border-radius: 0.375rem;
 }

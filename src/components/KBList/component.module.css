@@ -3,10 +3,10 @@
 }
 
 .title {
-  font-family: var(--luxe-font-family-display, serif);
+  font-family: var(--eui-font-family-display);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--luxe-color-heading, #1b1a4e);
+  color: var(--eui-color-heading);
   margin-bottom: 1.5rem;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .articleLink:hover .articleTitle {
-  color: var(--luxe-color-primary, #c29b40);
+  color: var(--eui-color-accent);
 }
 
 .articleIcon {
@@ -71,14 +71,14 @@
 .articleTitle {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--luxe-color-darkBlue, #1b1a4e);
+  color: var(--eui-color-heading);
   margin-bottom: 0.25rem;
   transition: color 0.2s ease;
 }
 
 .articleProblem {
   font-size: 0.875rem;
-  color: var(--luxe-color-darkBlue60, #767695);
+  color: var(--eui-color-text-muted);
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
@@ -86,9 +86,9 @@
 .articlePlatform {
   display: inline-block;
   padding: 0.25rem 0.75rem;
-  background: var(--luxe-bg-secondary, #f6f6f6);
+  background: var(--eui-bg-secondary);
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--luxe-color-darkBlue60, #767695);
+  color: var(--eui-color-text-muted);
 }

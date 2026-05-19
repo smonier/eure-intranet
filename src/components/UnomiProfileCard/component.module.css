@@ -18,7 +18,7 @@
   margin: 0 0 10px;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--jemp-text-strong, #0f172a);
+  color: var(--jemp-text-strong, var(--eui-color-heading));
 }
 
 .photoSection {
@@ -50,16 +50,16 @@
   align-items: baseline;
   gap: 6px;
   font-size: 0.9rem;
-  color: var(--jemp-text, #0f172a);
+  color: var(--jemp-text, var(--eui-color-heading));
 }
 
 .infoLabel {
   font-weight: 500;
-  color: #64748b;
+  color: var(--eui-color-text-muted);
   font-style: italic;
 }
 
 .infoValue {
   font-weight: 600;
-  color: var(--jemp-text, #0f172a);
+  color: var(--jemp-text, var(--eui-color-heading));
 }

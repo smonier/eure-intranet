@@ -3,10 +3,10 @@
 }
 
 .title {
-  font-family: var(--luxe-font-family-display, serif);
+  font-family: var(--eui-font-family-display);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--luxe-color-heading, #1b1a4e);
+  color: var(--eui-color-heading);
   margin-bottom: 1.5rem;
 }
 
@@ -36,7 +36,7 @@
 }
 
 a.card:hover .cardTitle {
-  color: var(--luxe-color-primary, #c29b40);
+  color: var(--eui-color-accent);
 }
 
 .cardIcon {
@@ -48,7 +48,7 @@ a.card:hover .cardTitle {
   justify-content: center;
   font-size: 1.5rem;
   flex-shrink: 0;
-  background: var(--luxe-bg-secondary, #f6f6f6);
+  background: var(--eui-bg-secondary);
 }
 
 .card--info .cardIcon {
@@ -67,8 +67,8 @@ a.card:hover .cardTitle {
 }
 
 .card--link .cardIcon {
-  background: var(--luxe-bg-secondary, #f6f6f6);
-  color: var(--luxe-color-primary, #c29b40);
+  background: var(--eui-bg-secondary);
+  color: var(--eui-color-accent);
 }
 
 .cardContent {
@@ -79,7 +79,7 @@ a.card:hover .cardTitle {
 .cardTitle {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--luxe-color-darkBlue, #1b1a4e);
+  color: var(--eui-color-heading);
   margin-bottom: 0.25rem;
   transition: color 0.2s ease;
 }
@@ -87,7 +87,7 @@ a.card:hover .cardTitle {
 .cardValue {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--luxe-color-primary, #c29b40);
+  color: var(--eui-color-accent);
   margin-top: 0.5rem;
 }
 

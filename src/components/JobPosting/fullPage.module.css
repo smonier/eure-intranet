@@ -114,14 +114,14 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
   font-weight: 600;
 }
 
 .highlightValue {
   font-size: 1rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .layout {
@@ -152,7 +152,7 @@
   margin: 0;
   font-size: 1.35rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .description {
@@ -164,7 +164,7 @@
 
 .description :global(h2),
 .description :global(h3) {
-  color: #0f172a;
+  color: var(--eui-color-heading);
   margin-top: 1.5rem;
   font-size: 1.15rem;
 }
@@ -188,13 +188,13 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: var(--eui-color-text-muted);
   font-weight: 600;
 }
 
 .factValue {
   font-size: 1rem;
-  color: #0f172a;
+  color: var(--eui-color-heading);
   font-weight: 600;
 }
 
@@ -219,7 +219,7 @@
   margin: 0;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .sidebarList {
@@ -234,7 +234,7 @@
   gap: 0.45rem;
   padding: 0.85rem 1.75rem;
   border-radius: 12px;
-  background: #2563eb;
+  background: var(--eui-color-info);
   color: #ffffff;
   font-weight: 600;
   text-decoration: none;
@@ -242,7 +242,7 @@
 }
 
 .ctaPrimary:hover {
-  background: #1d4ed8;
+  background: var(--eui-color-primary);
   transform: translateY(-1px);
 }
 
@@ -250,7 +250,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #2563eb;
+  color: var(--eui-color-info);
   text-decoration: none;
   font-weight: 600;
 }

@@ -12,12 +12,12 @@
   margin: 0;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .subtitle {
   margin: 0;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -26,7 +26,7 @@
   padding: 0.75rem 1rem;
   border-radius: 14px;
   background: rgba(37, 99, 235, 0.08);
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
   font-weight: 500;
 }
 
@@ -68,7 +68,7 @@
   border: 0;
   outline: none;
   font-size: 0.95rem;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .grid {
@@ -115,7 +115,7 @@
   border-radius: 50%;
   font-weight: 600;
   background: rgba(37, 99, 235, 0.12);
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
 }
 
 .info {
@@ -127,7 +127,7 @@
   margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .meta {
@@ -135,7 +135,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }
 
 .location {
@@ -151,7 +151,7 @@
 }
 
 .contactLink {
-  color: #2563eb;
+  color: var(--eui-color-info);
   font-weight: 500;
   text-decoration: none;
 }

@@ -5,12 +5,12 @@
 }
 
 .root .main {
-  --luxe-gutter-x: 1.5rem;
-  --luxe-gutter-y: 1.5rem;
+  --eui-gutter-x: 1.5rem;
+  --eui-gutter-y: 1.5rem;
 
   > div {
-    --luxe-gutter-x: 1.5rem;
-    --luxe-gutter-y: 1.5rem;
+    --eui-gutter-x: 1.5rem;
+    --eui-gutter-y: 1.5rem;
   }
 }
 

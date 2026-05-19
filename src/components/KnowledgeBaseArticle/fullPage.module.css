@@ -96,7 +96,7 @@
   margin: 0;
   font-size: 1.4rem;
   font-weight: 650;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .steps {
@@ -150,12 +150,12 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: var(--eui-color-text-muted);
 }
 
 .infoValue {
   font-size: 1rem;
-  color: #0f172a;
+  color: var(--eui-color-heading);
   font-weight: 600;
 }
 
@@ -164,7 +164,7 @@
   border-radius: 14px;
   background: rgba(226, 232, 240, 0.35);
   border: 1px dashed rgba(148, 163, 184, 0.4);
-  color: #475569;
+  color: var(--eui-color-text-muted);
   text-align: center;
   font-style: italic;
 }

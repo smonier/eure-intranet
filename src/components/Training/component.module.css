@@ -25,7 +25,7 @@
 
 .summary {
   margin: 0;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   line-height: 1.7;
 }
 
@@ -43,7 +43,7 @@
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
   background: rgba(59, 130, 246, 0.12);
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -65,13 +65,13 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #64748b;
+  color: var(--eui-color-text-muted);
 }
 
 .metaValue {
   font-size: 1rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .description {
@@ -93,7 +93,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: #2563eb;
+  background: var(--eui-color-info);
   color: #ffffff;
   border-radius: 999px;
   padding: 0.65rem 1.5rem;
@@ -103,11 +103,11 @@
 }
 
 .cta:hover {
-  background: #1d4ed8;
+  background: var(--eui-color-primary);
 }
 
 .providerLink {
-  color: #2563eb;
+  color: var(--eui-color-info);
   font-weight: 500;
   text-decoration: none;
 }

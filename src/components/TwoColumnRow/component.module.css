@@ -19,7 +19,7 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  color: var(--luxe-color-darkBlue, #1a1a2e);
+  color: var(--eui-color-heading);
 }
 
 .columnContent {

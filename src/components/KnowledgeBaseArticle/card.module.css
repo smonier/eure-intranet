@@ -23,12 +23,12 @@
   margin: 0 0 0.75rem;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .problem {
   margin: 0 0 1rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   line-height: 1.6;
 }
 
@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: auto;
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
   font-size: 0.85rem;
   font-weight: 600;
 }

@@ -1,30 +1,126 @@
+/* ============================================================
+   Eure-et-Loir Intranet — Design Tokens
+   All component CSS should consume these vars, never hard-code
+   ============================================================ */
+
 :root {
-  /* Eure-et-Loir branding */
-  --primary: #1C3F6E;
-  --primary-rgb: 28, 63, 110;
+  /* ── Brand palette ──────────────────────────────────────── */
+  --eui-color-primary:        #1C3F6E;   /* navy */
+  --eui-color-primary-dark:   #0d1f37;
+  --eui-color-primary-light:  #2a5a9e;
+  --eui-color-accent:         #F4C430;   /* yellow-gold (logo) */
+  --eui-color-accent-dark:    #d4a520;
+  --eui-color-secondary:      #4A8F3F;   /* green */
+  --eui-color-secondary-dark: #336b2c;
 
-  --secondary: #4A8F3F;
-  --accent: #F4C430;
+  /* ── Semantic text ──────────────────────────────────────── */
+  --eui-color-heading:        #1C3F6E;
+  --eui-color-text:           #1e293b;
+  --eui-color-text-muted:     var(--eui-color-text-muted);
+  --eui-color-text-subtle:    var(--eui-color-text-subtle);
+  --eui-color-link:           #1C3F6E;
+  --eui-color-link-hover:     #F4C430;
+  --eui-color-on-primary:     #ffffff;
+  --eui-color-on-accent:      #1C3F6E;
 
-  /* Portal theme */
-  --portal-color-primary: var(--primary);
-  --portal-color-primary-dark: #0d1f37;
-  --portal-color-accent: var(--accent);
+  /* ── Status ─────────────────────────────────────────────── */
+  --eui-color-success:        #4A8F3F;
+  --eui-color-warning:        #F4C430;
+  --eui-color-danger:         #dc2626;
+  --eui-color-info:           var(--eui-color-info);
+  --eui-color-purple:         #7c3aed;
+
+  /* ── Backgrounds ─────────────────────────────────────────── */
+  --eui-bg-body:              #ffffff;
+  --eui-bg-secondary:         #f4f6fa;
+  --eui-bg-tertiary:          #e8edf4;
+  --eui-bg-surface:           #ffffff;
+  --eui-bg-overlay:           rgba(28, 63, 110, 0.08);
+  --eui-bg-nav:               #1C3F6E;
+
+  /* ── Borders ─────────────────────────────────────────────── */
+  --eui-border-color:         rgba(28, 63, 110, 0.14);
+  --eui-border-color-muted:   rgba(28, 63, 110, 0.08);
+  --eui-border-width:         1px;
+  --eui-radius-sm:            4px;
+  --eui-radius:               8px;
+  --eui-radius-md:            12px;
+  --eui-radius-lg:            16px;
+  --eui-radius-xl:            20px;
+  --eui-radius-full:          9999px;
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --eui-shadow-sm:            0 1px 3px rgba(28, 63, 110, 0.10);
+  --eui-shadow-md:            0 4px 12px rgba(28, 63, 110, 0.12);
+  --eui-shadow-lg:            0 8px 24px rgba(28, 63, 110, 0.15);
+  --eui-shadow-xl:            0 18px 40px rgba(28, 63, 110, 0.18);
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --eui-font-family-base:     system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --eui-font-family-display:  var(--eui-font-family-base);
+  --eui-font-size-xs:         0.75rem;
+  --eui-font-size-sm:         0.875rem;
+  --eui-font-size-base:       1rem;
+  --eui-font-size-lg:         1.125rem;
+  --eui-font-size-xl:         1.25rem;
+  --eui-line-height:          1.5;
+
+  /* ── Spacing / Grid ──────────────────────────────────────── */
+  --eui-gutter-x:             1.5rem;
+  --eui-gutter-y:             1.5rem;
+  --eui-container-max:        1400px;
+
+  /* ── Transitions ─────────────────────────────────────────── */
+  --eui-transition-fast:      0.15s ease;
+  --eui-transition:           0.2s ease;
+  --eui-transition-slow:      0.3s ease;
+
+  /* ── Portal compat (NavBar, Layout use these) ────────────── */
+  --portal-color-primary:     var(--eui-color-primary);
+  --portal-color-primary-dark:var(--eui-color-primary-dark);
+  --portal-color-accent:      var(--eui-color-accent);
+
+  /* ── Luxe compat aliases (removes stale var() fallbacks)  ── */
+  /* Maps every --luxe-* token used across components to its
+     correct --eui-* equivalent so no inline fallback is needed */
+  --luxe-color-primary:       var(--eui-color-accent);
+  --luxe-color-darkBlue:      var(--eui-color-primary);
+  --luxe-color-darkBlue60:    var(--eui-color-text-muted);
+  --luxe-color-darkBlue40:    var(--eui-color-text-subtle);
+  --luxe-color-heading:       var(--eui-color-heading);
+  --luxe-color-gray:          var(--eui-bg-tertiary);
+  --luxe-color-purple:        var(--eui-color-purple);
+  --luxe-bg-secondary:        var(--eui-bg-secondary);
+  --luxe-font-family-base:    var(--eui-font-family-base);
+  --luxe-font-family-display: var(--eui-font-family-display);
+  --luxe-border-radius:       var(--eui-radius);
+  --luxe-border-width:        var(--eui-border-width);
+  --luxe-border-color-translucent: var(--eui-border-color-muted);
+  --luxe-tertiary-color:      var(--eui-color-text-subtle);
+  --luxe-gutter-x:            var(--eui-gutter-x);
+  --luxe-gutter-y:            var(--eui-gutter-y);
 }
 
+/* ── Reset + base ────────────────────────────────────────── */
 * {
   max-width: 100%;
 }
 
 body {
-  background: #fff;
-  line-height: 1.5;
+  font-family: var(--eui-font-family-base);
+  background: var(--eui-bg-body);
+  color: var(--eui-color-text);
+  line-height: var(--eui-line-height);
 }
 
 a {
-  color: #06a;
+  color: var(--eui-color-link);
+}
+
+a:hover {
+  color: var(--eui-color-link-hover);
 }
 
 main {
-  margin-block: clamp(1.5rem, 4vw, 2.5rem);
+  margin-block: 0;
 }

@@ -1,6 +1,6 @@
 .article {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(to bottom, var(--eui-bg-secondary) 0%, #ffffff 100%);
 }
 
 /* Hero Section */

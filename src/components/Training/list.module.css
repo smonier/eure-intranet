@@ -19,7 +19,7 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }
 
 .label {
@@ -29,7 +29,7 @@
   padding: 0.25rem 0.6rem;
   border-radius: 999px;
   background: rgba(37, 99, 235, 0.12);
-  color: #1d4ed8;
+  color: var(--eui-color-primary);
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -40,7 +40,7 @@
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #0f172a;
+  color: var(--eui-color-heading);
 }
 
 .titleLink {
@@ -55,7 +55,7 @@
 
 .summary {
   margin: 0;
-  color: #475569;
+  color: var(--eui-color-text-muted);
   line-height: 1.6;
   font-size: 0.95rem;
 }
@@ -67,7 +67,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #475569;
+  color: var(--eui-color-text-muted);
 }
 
 .provider {
@@ -75,7 +75,7 @@
 }
 
 .link {
-  color: #2563eb;
+  color: var(--eui-color-info);
   font-weight: 600;
   text-decoration: none;
 }
