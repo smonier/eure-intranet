@@ -51,28 +51,75 @@ const PROFILE_LABELS: Record<ProfileId, string> = {
   encadrant: "Encadrant",
 };
 
+/** Map Jahia username → profile ID (for persona simulation via real login) */
+const USERNAME_TO_PROFILE: Record<string, ProfileId> = {
+  brigitte: "terrain",
+  mathieu: "rh",
+  sophie: "com",
+  "jean-pierre": "encadrant",
+};
+
 jahiaComponent(
   {
     componentType: "view",
     nodeType: "euint:profileDashboard",
     name: "default",
     displayName: "Profile Dashboard",
+    properties: {
+      "cache.perUser": "true",
+    },
   },
   (props: ProfileDashboardProps, { renderContext }) => {
-    const { currentNode } = useServerContext();
+    const { currentNode, mainNode, jcrSession } = useServerContext();
     const rc = renderContext as RenderContext;
     const request = rc.getRequest();
 
+    // 1. Resolve profile from logged-in username (persona login)
+    const isLoggedIn = rc.isLoggedIn();
+    const jahiaUser = isLoggedIn && typeof rc.getUser === "function" ? rc.getUser() : null;
+    const jahiaUserAny = jahiaUser as unknown as { getName?: () => string } | null;
+    const loggedUsername: string | null =
+      jahiaUserAny && typeof jahiaUserAny.getName === "function"
+        ? jahiaUserAny.getName().toLowerCase()
+        : null;
+    const profileFromLogin = loggedUsername ? (USERNAME_TO_PROFILE[loggedUsername] ?? null) : null;
+
+    // Resolve real first/last name from JCR user node
+    let realFirstName: string | null = null;
+    let realLastName: string | null = null;
+    if (loggedUsername && jcrSession) {
+      try {
+        const userNode = jcrSession.getNode(`/users/${loggedUsername}`);
+        realFirstName = userNode.hasProperty("j:firstName")
+          ? userNode.getProperty("j:firstName").getString()
+          : null;
+        realLastName = userNode.hasProperty("j:lastName")
+          ? userNode.getProperty("j:lastName").getString()
+          : null;
+      } catch (_) {
+        // user node inaccessible — fall back to persona name
+      }
+    }
+    const realFullName =
+      realFirstName || realLastName
+        ? `${realFirstName ?? ""} ${realLastName ?? ""}`.trim()
+        : null;
+
+    // 2. Fallback: ?profile=<id> URL param
     const rawParam = request.getParameter("profile") as string | null;
     const validProfiles: ProfileId[] = ["terrain", "rh", "com", "encadrant"];
+
     const activeProfile: ProfileId =
-      rawParam && validProfiles.includes(rawParam as ProfileId)
+      profileFromLogin ??
+      (rawParam && validProfiles.includes(rawParam as ProfileId)
         ? (rawParam as ProfileId)
-        : (props["eui:defaultProfile"] ?? "terrain");
+        : (props["eui:defaultProfile"] ?? "terrain"));
 
     const persona = PERSONAS.find((p) => p.id === activeProfile) ?? PERSONAS[0];
     const showSwitcher = props["eui:showPersonaSwitcher"] !== false;
-    const pageUrl = currentNode?.getPath() ? `${request.getContextPath()}/cms/render/live/fr${currentNode.getPath()}.html` : "";
+    // Use mainNode (the page) so the ?profile= param reloads the page, not the content node
+    const pageNode = mainNode ?? currentNode;
+    const pageUrl = pageNode?.getPath() ? `${request.getContextPath()}/cms/render/live/fr${pageNode.getPath()}.html` : "";
 
     const hour = new Date().getHours();
     const greeting = hour < 12 ? "Bonjour" : hour < 18 ? "Bon après-midi" : "Bonsoir";
@@ -94,11 +141,13 @@ jahiaComponent(
             <div className={classes.headerInner}>
               <div className={classes.greetingBlock}>
                 <div className={classes.avatar} style={{ background: persona.color }}>
-                  {persona.initials}
+                  {realFirstName && realLastName
+                    ? `${realFirstName[0]}${realLastName[0]}`.toUpperCase()
+                    : persona.initials}
                 </div>
                 <div>
                   <div className={classes.greeting}>
-                    {greeting}, <strong>{persona.name}</strong>
+                    {greeting}, <strong>{realFullName ?? persona.name}</strong>
                   </div>
                   <div className={classes.role}>
                     {persona.role} &bull; {persona.direction}

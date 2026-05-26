@@ -1,0 +1,13 @@
+[ euint:documentCard ] > jnt:content, euimix:component, euimix:queryContent, seumix:linkTo, jmix:tagged, jmix:categorized
+ - jcr:title (string) i18n mandatory
+ - eui:description (string) i18n
+ - eui:fileType (string) = 'pdf' < 'pdf', 'docx', 'xlsx', 'pptx', 'zip', 'other'
+ - eui:source (string) = 'local' < 'local', 'sharepoint', 'ged'
+ - eui:direction (string) i18n
+ - eui:publishedDate (date)
+
+[ euint:documentList ] > jnt:content, euimix:component
+ orderable
+ + * (euint:documentCard) = euint:documentCard
+ - jcr:title (string) i18n
+ - eui:showSourceBadge (boolean) = true

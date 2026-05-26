@@ -7,9 +7,10 @@ const formatDate = (value?: string) => {
   if (!value) return null;
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
-  return date.toLocaleDateString("en-US", {
+  return date.toLocaleDateString("fr-FR", {
+    weekday: "short",
+    day: "2-digit",
     month: "short",
-    day: "numeric",
     year: "numeric",
   });
 };
@@ -18,10 +19,24 @@ const formatTime = (value?: string) => {
   if (!value) return null;
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
-  return date.toLocaleTimeString("en-US", {
-    hour: "numeric",
+  return date.toLocaleTimeString("fr-FR", {
+    hour: "2-digit",
     minute: "2-digit",
   });
+};
+
+const getDayNum = (value?: string) => {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleDateString("fr-FR", { day: "2-digit" });
+};
+
+const getMonthShort = (value?: string) => {
+  if (!value) return null;
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleDateString("fr-FR", { month: "short" }).toUpperCase();
 };
 
 jahiaComponent(
@@ -35,16 +50,18 @@ jahiaComponent(
     const props = rawProps as Props;
     const node = currentNode as JCRNodeWrapper;
     const url = buildNodeUrl(node);
-    const startDate = formatDate(props["eui:start"]);
     const startTime = formatTime(props["eui:start"]);
+    const dayNum = getDayNum(props["eui:start"]);
+    const monthShort = getMonthShort(props["eui:start"]);
 
     return (
       <article className={classes.card}>
         <a href={url} className={classes.link}>
           <div className={classes.content}>
-            {startDate && (
+            {dayNum && (
               <div className={classes.dateBox}>
-                <span className={classes.date}>{startDate}</span>
+                <span className={classes.dayNum}>{dayNum}</span>
+                <span className={classes.month}>{monthShort}</span>
                 {startTime && <span className={classes.time}>{startTime}</span>}
               </div>
             )}
@@ -54,7 +71,7 @@ jahiaComponent(
                 <p className={classes.location}>📍 {props["eui:location"]}</p>
               )}
               {props["eui:summary"] && <p className={classes.summary}>{props["eui:summary"]}</p>}
-              <span className={classes.readMore}>View details →</span>
+              <span className={classes.readMore}>Voir les détails →</span>
             </div>
           </div>
         </a>

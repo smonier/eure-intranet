@@ -6,6 +6,10 @@ export type NewsNode = JCRNodeWrapper & {
   "eui:body"?: string;
   "eui:heroImage"?: JCRNodeWrapper;
   "eui:publishDate"?: string;
+  "j:tagList"?: string[];
+  "j:defaultCategory"?: JCRNodeWrapper[];
+  "eui:profiles"?: string[];
+  "eui:direction"?: string;
 };
 
 export type Props = NewsNode;

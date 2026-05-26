@@ -3,6 +3,7 @@ import { t } from "i18next";
 import type { Props } from "./types";
 import classes from "./fullPage.module.css";
 import type { RenderContext } from "org.jahia.services.render";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 const formatEffectiveDate = (value?: string, locale = "en") => {
   if (!value) {
@@ -59,6 +60,8 @@ jahiaComponent(
     const title = rawProps["jcr:title"];
     const description = rawProps["eui:description"];
     const effectiveDate = formatEffectiveDate(rawProps["eui:effectiveDate"], locale);
+    const tags = rawProps["j:tagList"];
+    const categories = rawProps["j:defaultCategory"];
     const leadParagraph = extractLeadParagraph(description);
 
     return (
@@ -121,6 +124,9 @@ jahiaComponent(
               </p>
             </div>
           </aside>
+        </div>
+        <div style={{ maxWidth: "900px", margin: "0 auto", padding: "0 2rem 3rem" }}>
+          <TagsMeta tags={tags} categories={categories} />
         </div>
       </article>
     );

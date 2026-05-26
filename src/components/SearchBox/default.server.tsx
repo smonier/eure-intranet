@@ -2,8 +2,10 @@ import {
   jahiaComponent,
   AddResources,
   buildModuleFileUrl,
+  useServerContext,
 } from "@jahia/javascript-modules-library";
 import { t } from "i18next";
+import type { RenderContext } from "org.jahia.services.render";
 import type { JCRNodeWrapper } from "org.jahia.services.content";
 import classes from "./component.module.css";
 
@@ -13,7 +15,13 @@ jahiaComponent(
     nodeType: "euint:searchBox",
     displayName: "Search Box",
   },
-  ({ node }: { node?: JCRNodeWrapper }) => {
+  ({ node }: { node?: JCRNodeWrapper }, { renderContext }) => {
+    const rc = renderContext as RenderContext;
+    const request = rc.getRequest();
+    const contextPath = request.getContextPath();
+    // Build the search page URL: /sites/eureintranet/home/search.html
+    const searchActionUrl = `${contextPath}/cms/render/live/fr/sites/${rc.getSite().getSiteKey()}/home/search.html`;
+
     const placeholder = node?.hasProperty("eui:placeholder")
       ? node.getProperty("eui:placeholder").getString()
       : t("search.placeholder");
@@ -27,7 +35,7 @@ jahiaComponent(
           resources={buildModuleFileUrl("dist/client/components/SearchBox/island.client.js")}
         />
         <div className={classes.searchBox} data-search-box>
-          <form className={classes.searchForm} role="search" aria-label={formAriaLabel}>
+          <form className={classes.searchForm} role="search" aria-label={formAriaLabel} action={searchActionUrl} method="get">
             <input
               type="search"
               name="q"

@@ -1,4 +1,4 @@
-[ euint:training ] > jnt:content, mix:title, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, seumix:linkTo
+[ euint:training ] > jnt:content, mix:title, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, seumix:linkTo, jmix:tagged, jmix:categorized
  - eui:summary (string) i18n
  - eui:description (string, richtext) i18n
  - eui:startDate (date)

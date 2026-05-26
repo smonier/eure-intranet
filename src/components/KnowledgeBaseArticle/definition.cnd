@@ -1,4 +1,4 @@
-[ euint:kbArticle ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent
+[ euint:kbArticle ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, jmix:tagged, jmix:categorized
  - jcr:title (string) i18n
  - eui:problem (string) i18n
  - eui:steps (string, richtext) i18n

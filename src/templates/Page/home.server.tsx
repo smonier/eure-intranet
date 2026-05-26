@@ -19,7 +19,7 @@ jahiaComponent(
 
       <main>
         {/* Alerts banner — full width above everything */}
-        <Area name="alerts" allowedNodeTypes={["euint:alertsBanner"]} />
+        <Area name="alerts" allowedNodeTypes={["euint:alertBanner"]} />
 
         {/* Hero banner */}
         <Area name="hero" allowedNodeTypes={["euint:hero"]} />
@@ -30,13 +30,20 @@ jahiaComponent(
           allowedNodeTypes={["euint:profileDashboard"]}
         />
 
+        {/* Quick services grid */}
+        <section className={styles.servicesZone}>
+          <div className={styles.container}>
+            <Area name="quicklinks" allowedNodeTypes={["euint:servicesGrid", "euimix:component"]} />
+          </div>
+        </section>
+
         {/* Shared content below the profile fold */}
         <section className={styles.sharedZone}>
           <div className={styles.container}>
             {/* Main news + sidebar */}
             <div className={styles.newsRow}>
               <div className={styles.newsMain}>
-                <Area name="newslist" allowedNodeTypes={["euint:newsArticle", "euimix:component"]} />
+                <Area name="newslist" allowedNodeTypes={["euint:news", "euimix:component"]} />
               </div>
               <div className={styles.newsSidebar}>
                 <Area name="newsSidebar" allowedNodeTypes={["euimix:component"]} />

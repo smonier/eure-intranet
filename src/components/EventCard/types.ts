@@ -11,4 +11,6 @@ export type Props = {
   "seu:linkTarget"?: string;
   "seu:externalLink"?: string;
   "seu:internalLink"?: JCRNodeWrapper | string | null;
+  "j:tagList"?: string[];
+  "j:defaultCategory"?: JCRNodeWrapper[];
 };

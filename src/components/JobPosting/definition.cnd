@@ -1,4 +1,4 @@
-[ euint:jobPosting ] > jnt:content, jmix:editorialContent, jmix:mainResource, mix:title, euimix:component, euimix:queryContent, seumix:linkTo
+[ euint:jobPosting ] > jnt:content, jmix:editorialContent, jmix:mainResource, mix:title, euimix:component, euimix:queryContent, seumix:linkTo, jmix:tagged, jmix:categorized
  - jcr:title (string) i18n
  - eui:subtitle (string) i18n
  - eui:summary (string) i18n

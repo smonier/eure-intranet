@@ -11,6 +11,7 @@ import {
   resolveLocale,
   toIsoDate,
 } from "./utils";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 const formatLongDate = (value: string | undefined, locale: string) =>
   formatDate(value, locale, {
@@ -43,6 +44,8 @@ jahiaComponent(
 
     const title = props["jcr:title"];
     const summary = props["eui:summary"];
+    const tags = props["j:tagList"];
+    const categories = props["j:defaultCategory"];
     const description = props["eui:description"];
     const employmentType = props["eui:employmentType"];
     const workplace = props["eui:workplaceType"];
@@ -316,6 +319,9 @@ jahiaComponent(
                 </div>
               )}
             </aside>
+          </div>
+          <div style={{ padding: "0 2rem 2rem" }}>
+            <TagsMeta tags={tags} categories={categories} />
           </div>
         </section>
       </>

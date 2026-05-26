@@ -1,4 +1,4 @@
-[ euint:policy ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent
+[ euint:policy ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, jmix:tagged, jmix:categorized
  - jcr:title (string) i18n
  - eui:description (string, richtext) i18n
  - eui:effectiveDate (date)

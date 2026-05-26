@@ -5,6 +5,7 @@ import { t } from "i18next";
 import type { RenderContext } from "org.jahia.services.render";
 import { buildJsonLd, formatDateTime, resolveImageUrl, resolveLocale } from "./utils";
 import { resolveLink } from "~/utils/linkTo";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 jahiaComponent(
   {
@@ -20,6 +21,8 @@ jahiaComponent(
     const title = props["jcr:title"];
     const summary = props["eui:summary"];
     const description = props["eui:description"];
+    const tags = props["j:tagList"];
+    const categories = props["j:defaultCategory"];
     const providerName = props["eui:providerName"];
     const providerUrl = props["eui:providerUrl"];
     const registrationLink = resolveLink(props, providerUrl);
@@ -177,6 +180,9 @@ jahiaComponent(
                 )}
               </aside>
             )}
+          </div>
+          <div style={{ padding: "0 2rem 2rem" }}>
+            <TagsMeta tags={tags} categories={categories} />
           </div>
         </section>
       </>

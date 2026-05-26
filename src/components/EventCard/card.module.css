@@ -1,19 +1,18 @@
 .card {
   display: block;
   height: 100%;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  background: var(--eui-bg-surface);
+  border-radius: var(--eui-radius-md);
+  border: var(--eui-border-width) solid var(--eui-border-color);
   border-left: 4px solid var(--eui-color-accent);
+  overflow: hidden;
+  box-shadow: var(--eui-shadow-sm);
+  transition: transform var(--eui-transition), box-shadow var(--eui-transition);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  transform: translateY(-3px);
+  box-shadow: var(--eui-shadow-md);
 }
 
 .link {
@@ -37,23 +36,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  background: var(--eui-bg-secondary);
-  border-radius: 8px;
-  min-width: 100px;
+  padding: 0.75rem;
+  background: var(--eui-color-primary);
+  border-radius: var(--eui-radius);
+  min-width: 64px;
   text-align: center;
+  color: #fff;
 }
 
-.date {
-  font-size: 0.875rem;
-  font-weight: 600;
+.dayNum {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
   color: var(--eui-color-accent);
   display: block;
 }
 
+.month {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  display: block;
+}
+
 .time {
-  font-size: 0.75rem;
-  color: var(--eui-color-text-muted);
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.7);
   margin-top: 0.25rem;
   display: block;
 }
@@ -92,9 +102,9 @@
 
 .readMore {
   margin-top: auto;
-  color: var(--eui-color-accent);
-  font-weight: 500;
-  font-size: 0.9rem;
+  color: var(--eui-color-primary);
+  font-weight: 600;
+  font-size: var(--eui-font-size-sm);
 }
 
 .card:hover .readMore {

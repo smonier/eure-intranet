@@ -3,6 +3,7 @@ import { t } from "i18next";
 import classes from "./fullPage.module.css";
 import type { Props } from "./types";
 import type { RenderContext } from "org.jahia.services.render";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 const formatDate = (value?: string, locale = "en") => {
   if (!value) {
@@ -52,6 +53,8 @@ jahiaComponent(
 
     const title = props["jcr:title"];
     const problem = props["eui:problem"];
+    const tags = props["j:tagList"];
+    const categories = props["j:defaultCategory"];
     const platform = props["eui:platform"];
     const lastReviewed = formatDate(props["eui:lastReviewed"], locale);
     const steps = props["eui:steps"];
@@ -112,6 +115,9 @@ jahiaComponent(
                 </div>
               </aside>
             )}
+          </div>
+          <div style={{ padding: "0 2rem 2rem" }}>
+            <TagsMeta tags={tags} categories={categories} />
           </div>
         </section>
       </article>

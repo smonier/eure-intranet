@@ -18,8 +18,9 @@ if (typeof document !== "undefined") {
           const query = input?.value.trim();
 
           if (query) {
-            // Redirect to search results page with query parameter
-            window.location.href = `/search?q=${encodeURIComponent(query)}`;
+            // Use data-search-action set by the server view, fallback to relative path
+            const actionUrl = (form as HTMLFormElement).dataset.searchAction ?? "/search";
+            window.location.href = `${actionUrl}?q=${encodeURIComponent(query)}`;
           }
         });
       }

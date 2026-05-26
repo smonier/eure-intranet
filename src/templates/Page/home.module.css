@@ -1,12 +1,25 @@
+.servicesZone {
+  padding: 2rem 0;
+  background: var(--eui-bg-surface);
+  border-bottom: var(--eui-border-width) solid var(--eui-border-color);
+}
+
 .sharedZone {
   padding: 2rem 0;
-  background: #f4f6fa;
+  background: var(--eui-bg-secondary);
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contentZone {
+  padding: 2.5rem 0;
 }
 
 .contentGrid {

@@ -124,3 +124,22 @@ a:hover {
 main {
   margin-block: 0;
 }
+
+/* ── Component breathing room ────────────────────────────── */
+/* Each direct child of <main> gets vertical space from its sibling */
+main > * + * {
+  margin-top: 2.5rem;
+}
+
+/* Full-width sections (servicesZone, sharedZone, hero) sit flush
+   against each other — their internal padding already provides space */
+main > section + section {
+  margin-top: 0;
+}
+
+/* Inside any content container, stack children with a gap */
+.eui-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

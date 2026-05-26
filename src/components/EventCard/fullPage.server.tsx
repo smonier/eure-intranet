@@ -3,6 +3,7 @@ import { t } from "i18next";
 import type { Props } from "./types.js";
 import classes from "./fullPage.module.css";
 import { resolveLink } from "~/utils/linkTo";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 jahiaComponent(
   {
@@ -16,6 +17,8 @@ jahiaComponent(
     const title = props["jcr:title"];
     const summary = props["eui:summary"];
     const startDate = props["eui:start"];
+    const tags = props["j:tagList"];
+    const categories = props["j:defaultCategory"];
     const endDate = props["eui:end"];
     const location = props["eui:location"];
     const onlineLink = resolveLink(props);
@@ -227,6 +230,7 @@ jahiaComponent(
               </div>
             </div>
           </div>
+          <TagsMeta tags={tags} categories={categories} />
         </div>
       </article>
     );

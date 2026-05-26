@@ -1,6 +1,9 @@
-[ euint:news ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent
- - jcr:title (string) i18n
+[ euint:news ] > jnt:content, jmix:editorialContent, jmix:mainResource, euimix:component, euimix:queryContent, jmix:tagged, jmix:categorized
+ - jcr:title (string) i18n mandatory
  - eui:summary (string) i18n
  - eui:body (string, richtext) i18n
  - eui:heroImage (weakreference, picker[type='image']) < 'jmix:image'
+ - eui:publishDate (date)
+ - eui:profiles (string) multiple < 'terrain', 'rh', 'com', 'encadrant'
+ - eui:direction (string) i18n
 

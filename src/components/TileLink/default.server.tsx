@@ -9,6 +9,24 @@ import {
   Users,
   Lightbulb,
   Compass,
+  Clock,
+  MapPin,
+  FolderOpen,
+  Phone,
+  Building,
+  GraduationCap,
+  BarChart2,
+  Mail,
+  Shield,
+  Wrench,
+  CreditCard,
+  TreePine,
+  ClipboardList,
+  Banknote,
+  HeartPulse,
+  Search,
+  Settings,
+  Home,
   type LucideProps,
 } from "lucide-react";
 import type { TileLinkProps } from "./types";
@@ -17,6 +35,7 @@ import classes from "./component.module.css";
 import { t } from "i18next";
 
 const ICONS: Record<string, ComponentType<LucideProps>> = {
+  // Legacy / generic
   calendar: Calendar,
   news: FileText,
   it: Monitor,
@@ -25,7 +44,29 @@ const ICONS: Record<string, ComponentType<LucideProps>> = {
   people: Users,
   ideas: Lightbulb,
   explore: Compass,
+  // Eure-et-Loir departmental services
+  badgeuse: Clock,
+  absences: ClipboardList,
+  conges: TreePine,
+  planning: Calendar,
+  annuaire: Phone,
+  salles: Building,
+  messagerie: Mail,
+  formation: GraduationCap,
+  ged: FolderOpen,
+  organigramme: BarChart2,
+  frais: CreditCard,
+  paie: Banknote,
+  dsi: Wrench,
+  securite: Shield,
+  sante: HeartPulse,
+  recherche: Search,
+  parametres: Settings,
+  accueil: Home,
+  agents: Users,
+  voirie: MapPin,
 };
+
 
 const resolveHref = (props: TileLinkProps) => {
   const {

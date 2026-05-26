@@ -27,7 +27,11 @@ const resolveImageUrl = (
 
 const resolveLink = (props: HeroProps) => {
   const directUrl = typeof props["eui:url"] === "string" ? props["eui:url"] : null;
-  const { "seu:linkType": linkType, "seu:externalLink": external, "seu:internalLink": internal } = props;
+  const {
+    "seu:linkType": linkType,
+    "seu:externalLink": external,
+    "seu:internalLink": internal,
+  } = props;
 
   if (linkType === "externalLink" && typeof external === "string") {
     return external;
@@ -37,7 +41,11 @@ const resolveLink = (props: HeroProps) => {
     if (typeof internal === "string") {
       return internal;
     }
-    if (typeof internal === "object" && "getPath" in internal && typeof internal.getPath === "function") {
+    if (
+      typeof internal === "object" &&
+      "getPath" in internal &&
+      typeof internal.getPath === "function"
+    ) {
       return buildNodeUrl(internal as JCRNodeWrapper);
     }
   }
@@ -70,7 +78,8 @@ jahiaComponent(
   (props: HeroProps, { renderContext }: { renderContext: RenderContext }) => {
     const title = props["jcr:title"];
     const subtitle = props["eui:subtitle"];
-    const ctaLabelRaw = typeof props["eui:ctaLabel"] === "string" ? props["eui:ctaLabel"].trim() : "";
+    const ctaLabelRaw =
+      typeof props["eui:ctaLabel"] === "string" ? props["eui:ctaLabel"].trim() : "";
     const hasCtaLabel = Boolean(ctaLabelRaw);
     const backgroundUrl = resolveImageUrl(props["eui:backgroundImage"], renderContext);
     const href = resolveLink(props);
@@ -90,9 +99,6 @@ jahiaComponent(
     return (
       <section className={classes.root} style={style}>
         <div className={classes.content}>
-          <span className={classes.eyebrow}>
-            <span aria-hidden="true" />
-          </span>
           <h2 className={classes.title}>{title}</h2>
           {subtitle && <p className={classes.subtitle}>{subtitle}</p>}
           {hasCtaLabel && (

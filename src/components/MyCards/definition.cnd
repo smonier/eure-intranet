@@ -3,4 +3,4 @@
  - eui:type (string) = 'info' autocreated < 'info', 'stat', 'task', 'link'
  - eui:deeplink (string)
  - eui:value (string)
- - eui:icon (string)
+ - eui:icon (string, choicelist[resourceBundle]) < 'badgeuse', 'absences', 'conges', 'planning', 'annuaire', 'salles', 'messagerie', 'formation', 'ged', 'organigramme', 'frais', 'paie', 'dsi', 'securite', 'sante', 'calendar', 'news', 'it', 'learning', 'career', 'people', 'ideas', 'explore', 'accueil', 'agents', 'voirie', 'recherche'

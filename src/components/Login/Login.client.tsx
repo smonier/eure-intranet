@@ -9,6 +9,8 @@ import alert from "~/templates/css/alert.module.css";
 interface LoginClientProps {
   isLoggedIn: boolean;
   userHydrated?: string;
+  userFirstName?: string;
+  userLastName?: string;
   urls: JahiaUrlsProps;
   mode: string;
   nodePath: string;
@@ -21,6 +23,8 @@ interface LoginClientProps {
 const LoginClient = ({
   isLoggedIn,
   userHydrated,
+  userFirstName,
+  userLastName,
   urls,
   mode,
   nodePath,
@@ -31,6 +35,10 @@ const LoginClient = ({
 }: LoginClientProps) => {
   const isInline = displayMode === "inline";
   const [user, setUser] = useState(userHydrated);
+  const displayName =
+    userFirstName || userLastName
+      ? `${userFirstName ?? ""} ${userLastName ?? ""}`.trim()
+      : user;
   const [loggedIn, setLoggedIn] = useState(isLoggedIn);
   const [isOpen, setIsOpen] = useState(isInline);
 
@@ -71,25 +79,17 @@ const LoginClient = ({
   const logout = async () => {
     await fetch(urls.logoutUrl);
     if (typeof window !== "undefined") {
-      window.location.reload();
+      // After logout, redirect to the login page (home)
+      window.location.href = "/sites/eureintranet/home.html";
     } else {
       setLoggedIn(false);
     }
   };
 
-  const resolveRedirectUrl = (username?: string): string => {
-    const userKey = username?.toLowerCase();
-    switch (userKey) {
-      case "pam":
-      case "penny":
-        return "/sites/empportal/home/my-portal.html";
-      case "contrib-simple":
-      case "contrib-avance":
-        return "/start";
-      case "robin":
-      default:
-        return "/sites/empportal/home.html";
-    }
+  const resolveRedirectUrl = (_username?: string): string => {
+    // After login, send all personas to the dashboard (ProfileDashboard page).
+    // The dashboard reads the logged-in username server-side and activates the correct profile area.
+    return "/sites/eureintranet/home/tableau-de-bord.html";
   };
 
   const handleLoggedIn = (username: string) => {
@@ -123,7 +123,7 @@ const LoginClient = ({
         <div className={classes.loggedCard}>
           <div className={classes.loggedHeader}>
             <span className={classes.loggedBadge}>{t("form.login.loggedIn", "Signed in")}</span>
-            <h3 className={classes.loggedName}>{user}</h3>
+            <h3 className={classes.loggedName}>{displayName}</h3>
             <p className={classes.loggedSubtitle}>{t("form.login.manageAccess", "You now have access to the employee portal experience.")}</p>
           </div>
           <div className={classes.loggedActions}>
@@ -175,7 +175,7 @@ const LoginClient = ({
             </h2>
             <button type="button" className={classes.close} onClick={() => setIsOpen(false)}>
               <span aria-hidden="true">&times;</span>
-              <span className={classes.hidden}>{t("jemp.label.close")}</span>
+              <span className={classes.hidden}>{t("jemp.label.close", "Fermer")}</span>
             </button>
 
             <LoginFormClient

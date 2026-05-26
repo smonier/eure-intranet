@@ -2,14 +2,14 @@ import { jahiaComponent, buildNodeUrl } from "@jahia/javascript-modules-library"
 import type { JCRNodeWrapper } from "org.jahia.services.content";
 import { t } from "i18next";
 import type { Props } from "./types.js";
-import classes from "./card.module.css";
+import classes from "./horizontal.module.css";
 
 jahiaComponent(
   {
     componentType: "view",
     nodeType: "euint:news",
-    name: "card",
-    displayName: "News Card",
+    name: "horizontal",
+    displayName: "News Horizontal",
   },
   (rawProps, { currentNode }) => {
     const props = rawProps as unknown as Props;
@@ -35,12 +35,14 @@ jahiaComponent(
             </div>
           )}
           <div className={classes.content}>
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flexWrap: "wrap" }}>
+            <div className={classes.meta}>
               {publishDate && <time className={classes.date}>{publishDate}</time>}
               {direction && <span className={classes.direction}>{direction}</span>}
             </div>
             <h3 className={classes.title}>{props["jcr:title"]}</h3>
-            {props["eui:summary"] && <p className={classes.summary}>{props["eui:summary"]}</p>}
+            {props["eui:summary"] && (
+              <p className={classes.summary}>{props["eui:summary"]}</p>
+            )}
             {tags.length > 0 && (
               <div className={classes.tags}>
                 {tags.map((tag) => (

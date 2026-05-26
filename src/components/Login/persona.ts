@@ -1,64 +1,64 @@
 import type { LoginPersonaProps } from "./types";
-import pamP from "/static/img/users/pam.webp";
-import pamM from "/static/img/users/pam.webm";
-import pennyP from "/static/img/users/penny.webp";
-import pennyM from "/static/img/users/penny.webm";
-import robinP from "/static/img/users/robin.webp";
-import robinM from "/static/img/users/robin.webm";
+import brigitteP from "/static/img/users/brigitte.webp";
+import brigitteM from "/static/img/users/brigitte.webm";
+import mathieuP from "/static/img/users/mathieu.webp";
+import mathieuM from "/static/img/users/mathieu.webm";
+import sophieP from "/static/img/users/sophie.webp";
+import sophieM from "/static/img/users/sophie.webm";
 
 export const rawPersona: LoginPersonaProps[] = [
   {
-    username: "pam",
-    password: "password",
+    username: "brigitte",
+    password: "brigitte",
     userinfo: {
-      fullname: "Pam Pasteur",
-      function: "form.login.persona.pam.function",
+      fullname: "Brigitte Renard",
+      function: "form.login.persona.brigitte.function",
       avatar: {
         image: {
-          url: pamP,
-          alt: "form.login.persona.pam.alt",
+          url: brigitteP,
+          alt: "form.login.persona.brigitte.alt",
         },
         video: {
-          url: pamM,
+          url: brigitteM,
         },
       },
-      description: "form.login.persona.pam.description",
+      description: "form.login.persona.brigitte.description",
     },
   },
   {
-    username: "penny",
-    password: "password",
+    username: "mathieu",
+    password: "mathieu",
     userinfo: {
-      fullname: "Penny Galileo",
-      function: "form.login.persona.penny.function",
+      fullname: "Mathieu Clermont",
+      function: "form.login.persona.mathieu.function",
       avatar: {
         image: {
-          url: pennyP,
-          alt: "form.login.persona.penny.alt",
+          url: mathieuP,
+          alt: "form.login.persona.mathieu.alt",
         },
         video: {
-          url: pennyM,
+          url: mathieuM,
         },
       },
-      description: "form.login.persona.penny.description",
+      description: "form.login.persona.mathieu.description",
     },
   },
   {
-    username: "robin",
-    password: "password",
+    username: "sophie",
+    password: "sophie",
     userinfo: {
-      fullname: "Robin Lovelace",
-      function: "form.login.persona.robin.function",
+      fullname: "Sophie Durand",
+      function: "form.login.persona.sophie.function",
       avatar: {
         image: {
-          url: robinP,
-          alt: "form.login.persona.robin.alt",
+          url: sophieP,
+          alt: "form.login.persona.sophie.alt",
         },
         video: {
-          url: robinM,
+          url: sophieM,
         },
       },
-      description: "form.login.persona.robin.description",
+      description: "form.login.persona.sophie.description",
     },
   },
 ];

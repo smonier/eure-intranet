@@ -1,0 +1,137 @@
+.list {
+  padding: 0.5rem 0;
+}
+
+.listHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--eui-font-size-lg);
+  font-weight: 700;
+  color: var(--eui-color-heading);
+  margin: 0 0 1rem;
+  border-left: 4px solid var(--eui-color-accent);
+  padding-left: 0.75rem;
+}
+
+.listHeadingAccent {
+  font-size: 1rem;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ── Card ─────────────────────────────────── */
+.link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--eui-radius-md);
+  transition: box-shadow var(--eui-transition);
+}
+
+.link:hover .card {
+  border-color: var(--eui-color-accent);
+  box-shadow: var(--eui-shadow-md);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  background: var(--eui-bg-surface);
+  border: var(--eui-border-width) solid var(--eui-border-color);
+  border-radius: var(--eui-radius-md);
+  transition: border-color var(--eui-transition), box-shadow var(--eui-transition);
+}
+
+.fileIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.fileIcon > :first-child {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.fileType {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: inherit;
+  opacity: 0.9;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.sourceBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--eui-radius-full);
+  color: #fff;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.direction {
+  font-size: var(--eui-font-size-xs);
+  color: var(--eui-color-text-muted);
+}
+
+.date {
+  font-size: var(--eui-font-size-xs);
+  color: var(--eui-color-text-subtle);
+  margin-left: auto;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--eui-font-size-base);
+  font-weight: 600;
+  color: var(--eui-color-heading);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  margin: 0;
+  font-size: var(--eui-font-size-sm);
+  color: var(--eui-color-text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.downloadIcon {
+  font-size: 0.9rem;
+  color: var(--eui-color-text-subtle);
+  flex-shrink: 0;
+  transition: color var(--eui-transition);
+}
+
+.link:hover .downloadIcon {
+  color: var(--eui-color-primary);
+}

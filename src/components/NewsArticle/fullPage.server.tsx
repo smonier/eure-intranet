@@ -1,6 +1,7 @@
 import { jahiaComponent, buildNodeUrl } from "@jahia/javascript-modules-library";
 import type { Props } from "./types.js";
 import classes from "./fullPage.module.css";
+import { TagsMeta } from "~/utils/tagsMeta.js";
 
 jahiaComponent(
   {
@@ -16,6 +17,8 @@ jahiaComponent(
     const body = props["eui:body"];
     const heroImage = props["eui:heroImage"];
     const publishDate = props["eui:publishDate"];
+    const tags = props["j:tagList"];
+    const categories = props["j:defaultCategory"];
 
     // Get image URL from the file node path
     const formattedDate = publishDate
@@ -65,6 +68,8 @@ jahiaComponent(
 
             {/* Article Body */}
             {body && <div className={classes.body} dangerouslySetInnerHTML={{ __html: body }} />}
+
+            <TagsMeta tags={tags} categories={categories} />
           </div>
         </div>
       </article>

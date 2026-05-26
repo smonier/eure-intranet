@@ -1,3 +1,3 @@
 [ euint:quickLink ] > jnt:content, euimix:component, seumix:linkTo
  - jcr:title (string) i18n
- - eui:icon (string)
+ - eui:icon (string, choicelist[resourceBundle]) < 'badgeuse', 'absences', 'conges', 'planning', 'annuaire', 'salles', 'messagerie', 'formation', 'ged', 'organigramme', 'frais', 'paie', 'dsi', 'securite', 'sante', 'calendar', 'news', 'it', 'learning', 'career', 'people', 'ideas', 'explore', 'accueil', 'agents', 'voirie', 'recherche'

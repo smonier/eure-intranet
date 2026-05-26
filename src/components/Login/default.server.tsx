@@ -3,6 +3,7 @@ import {
   buildModuleFileUrl,
   Island,
   jahiaComponent,
+  useServerContext,
 } from "@jahia/javascript-modules-library";
 import type { RenderContext } from "org.jahia.services.render";
 import LoginClient from "./Login.client";
@@ -23,6 +24,7 @@ jahiaComponent(
     },
   },
   ({ "j:displayRememberMeButton": displayRememberMe }: Props, { renderContext }) => {
+    const { jcrSession } = useServerContext();
     const context = renderContext as RenderContext;
     const isLoggedIn = context.isLoggedIn();
     const user = typeof context.getUser === "function" ? context.getUser() : null;
@@ -31,6 +33,22 @@ jahiaComponent(
       userWithName && typeof userWithName.getName === "function"
         ? userWithName.getName()
         : undefined;
+
+    let userFirstName: string | undefined;
+    let userLastName: string | undefined;
+    if (userHydrated && jcrSession) {
+      try {
+        const userNode = jcrSession.getNode(`/users/${userHydrated}`);
+        userFirstName = userNode.hasProperty("j:firstName")
+          ? userNode.getProperty("j:firstName").getString()
+          : undefined;
+        userLastName = userNode.hasProperty("j:lastName")
+          ? userNode.getProperty("j:lastName").getString()
+          : undefined;
+      } catch (_) {
+        // fallback to username
+      }
+    }
 
     const urlGenerator = context.getURLGenerator();
     const urls = {
@@ -62,18 +80,40 @@ jahiaComponent(
     const mode = typeof context.getMode === "function" ? context.getMode() : "live";
     const mainPath = context.getMainResource().getNode().getPath();
 
+    // Auto-detect inline mode: when placed on a page that uses the "login" template,
+    // show the full form directly instead of a modal trigger link.
+    let displayMode: "modal" | "inline" = "modal";
+    try {
+      const mainResource = context.getMainResource();
+      if (mainResource) {
+        const pageNode = mainResource.getNode() as unknown as {
+          hasProperty: (name: string) => boolean;
+          getProperty: (name: string) => { getString: () => string };
+        } | null;
+        if (pageNode && pageNode.hasProperty("j:templateName")) {
+          const tpl = pageNode.getProperty("j:templateName").getString();
+          if (tpl === "login") displayMode = "inline";
+        }
+      }
+    } catch (_) {
+      // Keep modal as fallback
+    }
+
     return (
       <Island
         component={LoginClient}
         props={{
           isLoggedIn,
           userHydrated,
+          userFirstName,
+          userLastName,
           urls,
           mode,
           nodePath: mainPath,
           isShowRememberMe: displayRememberMe ?? true,
           siteKey: context.getSite().getSiteKey(),
           persona,
+          displayMode,
         }}
       />
     );

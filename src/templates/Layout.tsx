@@ -50,13 +50,14 @@ export const Layout = ({ title, head, children }: LayoutProps): JSX.Element => {
   const { currentResource, renderContext } = useServerContext();
   const lang = currentResource?.getLocale().getLanguage() ?? "en";
   const site = renderContext?.getSite();
+  const footerParent = site && typeof site.getHome === "function" ? site.getHome() : site;
 
   return (
     <html lang={lang}>
       <HtmlHead title={title}>{head}</HtmlHead>
       <body>
         {children}
-        {site && <AbsoluteArea name="footer" parent={site} nodeType="euint:footer" />}
+        {site && <AbsoluteArea name="footer" parent={footerParent} nodeType="euint:footer" />}
       </body>
     </html>
   );
