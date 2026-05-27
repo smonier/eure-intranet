@@ -70,34 +70,39 @@ jahiaComponent(
     },
   },
   (props: ProfileDashboardProps, { renderContext }) => {
-    const { currentNode, mainNode, jcrSession } = useServerContext();
+    const { currentNode, mainNode } = useServerContext();
     const rc = renderContext as RenderContext;
     const request = rc.getRequest();
 
     // 1. Resolve profile from logged-in username (persona login)
     const isLoggedIn = rc.isLoggedIn();
     const jahiaUser = isLoggedIn && typeof rc.getUser === "function" ? rc.getUser() : null;
-    const jahiaUserAny = jahiaUser as unknown as { getName?: () => string } | null;
+    const jahiaUserNode = jahiaUser as unknown as {
+      getName?: () => string;
+      hasProperty?: (name: string) => boolean;
+      getProperty?: (name: string) => { getString: () => string };
+    } | null;
     const loggedUsername: string | null =
-      jahiaUserAny && typeof jahiaUserAny.getName === "function"
-        ? jahiaUserAny.getName().toLowerCase()
+      jahiaUserNode && typeof jahiaUserNode.getName === "function"
+        ? jahiaUserNode.getName().toLowerCase()
         : null;
     const profileFromLogin = loggedUsername ? (USERNAME_TO_PROFILE[loggedUsername] ?? null) : null;
 
-    // Resolve real first/last name from JCR user node
+    // Resolve real first/last name directly from the JahiaUser node (JCRUserNode implements JCRNodeWrapper)
     let realFirstName: string | null = null;
     let realLastName: string | null = null;
-    if (loggedUsername && jcrSession) {
+    if (jahiaUserNode) {
       try {
-        const userNode = jcrSession.getNode(`/users/${loggedUsername}`);
-        realFirstName = userNode.hasProperty("j:firstName")
-          ? userNode.getProperty("j:firstName").getString()
-          : null;
-        realLastName = userNode.hasProperty("j:lastName")
-          ? userNode.getProperty("j:lastName").getString()
-          : null;
+        realFirstName =
+          typeof jahiaUserNode.hasProperty === "function" && jahiaUserNode.hasProperty("j:firstName")
+            ? (jahiaUserNode.getProperty?.("j:firstName").getString() ?? null)
+            : null;
+        realLastName =
+          typeof jahiaUserNode.hasProperty === "function" && jahiaUserNode.hasProperty("j:lastName")
+            ? (jahiaUserNode.getProperty?.("j:lastName").getString() ?? null)
+            : null;
       } catch (_) {
-        // user node inaccessible — fall back to persona name
+        // fall back to persona name
       }
     }
     const realFullName =

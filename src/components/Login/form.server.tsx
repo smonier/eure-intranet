@@ -3,7 +3,6 @@ import {
   buildModuleFileUrl,
   Island,
   jahiaComponent,
-  useServerContext,
 } from "@jahia/javascript-modules-library";
 import type { RenderContext } from "org.jahia.services.render";
 import LoginClient from "./Login.client";
@@ -24,27 +23,31 @@ jahiaComponent(
     },
   },
   ({ "j:displayRememberMeButton": displayRememberMe }: Props, { renderContext }) => {
-    const { jcrSession } = useServerContext();
     const context = renderContext as RenderContext;
     const isLoggedIn = context.isLoggedIn();
     const user = typeof context.getUser === "function" ? context.getUser() : null;
-    const userWithName = user as unknown as { getName?: () => string } | null;
+    const userNode = user as unknown as {
+      getName?: () => string;
+      hasProperty?: (name: string) => boolean;
+      getProperty?: (name: string) => { getString: () => string };
+    } | null;
     const userHydrated =
-      userWithName && typeof userWithName.getName === "function"
-        ? userWithName.getName()
+      userNode && typeof userNode.getName === "function"
+        ? userNode.getName()
         : undefined;
 
     let userFirstName: string | undefined;
     let userLastName: string | undefined;
-    if (userHydrated && jcrSession) {
+    if (userNode) {
       try {
-        const userNode = jcrSession.getNode(`/users/${userHydrated}`);
-        userFirstName = userNode.hasProperty("j:firstName")
-          ? userNode.getProperty("j:firstName").getString()
-          : undefined;
-        userLastName = userNode.hasProperty("j:lastName")
-          ? userNode.getProperty("j:lastName").getString()
-          : undefined;
+        userFirstName =
+          typeof userNode.hasProperty === "function" && userNode.hasProperty("j:firstName")
+            ? userNode.getProperty?.("j:firstName").getString()
+            : undefined;
+        userLastName =
+          typeof userNode.hasProperty === "function" && userNode.hasProperty("j:lastName")
+            ? userNode.getProperty?.("j:lastName").getString()
+            : undefined;
       } catch (_) {
         // fallback to username
       }

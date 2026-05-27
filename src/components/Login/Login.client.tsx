@@ -35,11 +35,40 @@ const LoginClient = ({
 }: LoginClientProps) => {
   const isInline = displayMode === "inline";
   const [user, setUser] = useState(userHydrated);
-  const displayName =
-    userFirstName || userLastName
-      ? `${userFirstName ?? ""} ${userLastName ?? ""}`.trim()
-      : user;
   const [loggedIn, setLoggedIn] = useState(isLoggedIn);
+  const [displayFirstName, setDisplayFirstName] = useState(userFirstName);
+  const [displayLastName, setDisplayLastName] = useState(userLastName);
+
+  // Fetch real name from GraphQL whenever we are logged in and props didn't carry it
+  useEffect(() => {
+    if (!loggedIn || !user) return;
+    if (displayFirstName || displayLastName) return; // already have it from server
+    fetch(urls.gqlUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify({
+        query: `{ jcr { nodesByQuery(query: "SELECT * FROM [jnt:user] WHERE NAME() = '${user}'", queryLanguage: SQL2) { nodes { properties(names: ["j:firstName", "j:lastName"]) { name value } } } } }`,
+      }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        const nodes = data?.data?.jcr?.nodesByQuery?.nodes ?? [];
+        if (nodes.length > 0) {
+          const map: Record<string, string> = Object.fromEntries(
+            (nodes[0].properties as { name: string; value: string }[]).map((p) => [p.name, p.value]),
+          );
+          if (map["j:firstName"]) setDisplayFirstName(map["j:firstName"]);
+          if (map["j:lastName"]) setDisplayLastName(map["j:lastName"]);
+        }
+      })
+      .catch(() => {/* fallback to username */});
+  }, [loggedIn, user]);
+
+  const displayName =
+    displayFirstName || displayLastName
+      ? `${displayFirstName ?? ""} ${displayLastName ?? ""}`.trim()
+      : user;
   const [isOpen, setIsOpen] = useState(isInline);
 
   const personaList = useMemo(() => persona ?? [], [persona]);
