@@ -13,8 +13,9 @@ import { t } from "i18next";
 import { buildQuery, getContentTypeLabel } from "./utils";
 import type { JcrQueryProps } from "./types";
 import { Col, HeadingSection, Row } from "~/components/shared";
-import JcrQueryControls from "./JcrQueryControls.client.jsx";
-import type { CategoryMeta } from "./JcrQueryControls.client.jsx";
+import JcrQueryFilter from "./JcrQueryFilter.client.jsx";
+import JcrQueryLoadMore from "./JcrQueryLoadMore.client.jsx";
+import type { CategoryMeta } from "./JcrQueryFilter.client.jsx";
 
 const PAGE_SIZE = 6;
 
@@ -172,40 +173,39 @@ jahiaComponent(
 
         {queryContent && queryContent.length > 0 && (
           <>
-            {/* Island: renders filter chips ABOVE the grid + load-more button BELOW */}
-            {isInteractive && !renderContext.isEditMode() && (
+            {/* ① Category filter chips — ABOVE the grid */}
+            {categoryFilter && !renderContext.isEditMode() && (
               <Island
-                component={JcrQueryControls}
-                props={{
-                  queryId,
-                  categories: availableCategories,
-                  loadMore: loadMore ?? false,
-                  categoryFilter: categoryFilter ?? false,
-                  pageSize: PAGE_SIZE,
-                  total: itemCount,
-                }}
+                component={JcrQueryFilter}
+                props={{ queryId, categories: availableCategories }}
               />
             )}
 
-            {/* Grid with data attributes for DOM-based filtering */}
+            {/* Grid — every Col carries data-* attributes for DOM-based filtering */}
             <Row className={classes.main} data-qgrid={queryId}>
               {queryContent.map((node, idx) => {
                 const catIds = isInteractive ? (itemCategoryIds[idx] ?? []) : [];
-                // Items beyond PAGE_SIZE get data-lm-visible="false" initially (CSS hides them)
-                const hiddenByDefault = loadMore && idx >= PAGE_SIZE;
                 return (
                   <Col
                     key={node.getIdentifier()}
                     data-qitem={queryId}
                     data-categories={catIds.join(",")}
                     data-cat-visible="true"
-                    data-lm-visible={hiddenByDefault ? "false" : "true"}
+                    data-lm-visible="true"
                   >
                     <Render node={node as JCRNodeWrapper} view={subNodeView || "default"} readOnly />
                   </Col>
                 );
               })}
             </Row>
+
+            {/* ② Load-more button — BELOW the grid */}
+            {loadMore && !renderContext.isEditMode() && (
+              <Island
+                component={JcrQueryLoadMore}
+                props={{ queryId, pageSize: PAGE_SIZE, total: itemCount }}
+              />
+            )}
           </>
         )}
 
