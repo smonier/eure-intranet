@@ -12,4 +12,6 @@ export interface JcrQueryProps {
   "noResultText"?: string;
   "j:subNodesView"?: string;
   "j:view"?: string;
+  "loadMore"?: boolean;
+  "categoryFilter"?: boolean;
 }
