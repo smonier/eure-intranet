@@ -39,11 +39,24 @@ const LoginClient = ({
   const [displayFirstName, setDisplayFirstName] = useState(userFirstName);
   const [displayLastName, setDisplayLastName] = useState(userLastName);
 
-  // Fetch real name from GraphQL whenever we are logged in and props didn't carry it
+  // Resolve real display name once we know we're logged in
   useEffect(() => {
     if (!loggedIn || !user) return;
-    if (displayFirstName || displayLastName) return; // already have it from server
-    fetch(urls.gqlUrl, {
+    if (displayFirstName || displayLastName) return; // already set from server props
+
+    // 1. Fast path: username matches one of the configured personas — use its full name
+    const matchedPersona = personaList.find((p) => p.username === user);
+    if (matchedPersona?.userinfo?.fullname) {
+      const parts = matchedPersona.userinfo.fullname.trim().split(/\s+/);
+      setDisplayFirstName(parts[0]);
+      if (parts.length > 1) setDisplayLastName(parts.slice(1).join(" "));
+      return;
+    }
+
+    // 2. Fallback: ask GraphQL with the current session cookie.
+    //    Note: regular users cannot read jnt:user nodes, so this only succeeds for
+    //    privileged accounts (admin, root). Safe to fire — will silently fall back to username.
+    fetch("/modules/graphql", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -62,7 +75,7 @@ const LoginClient = ({
           if (map["j:lastName"]) setDisplayLastName(map["j:lastName"]);
         }
       })
-      .catch(() => {/* fallback to username */});
+      .catch(() => {/* stay with username as display name */});
   }, [loggedIn, user]);
 
   const displayName =
