@@ -1,7 +1,5 @@
 import {
   Area,
-  AddResources,
-  buildModuleFileUrl,
   jahiaComponent,
   useServerContext,
 } from "@jahia/javascript-modules-library";
@@ -43,13 +41,6 @@ const PERSONAS: Persona[] = [
     color: "#7c3aed",
   },
 ];
-
-const PROFILE_LABELS: Record<ProfileId, string> = {
-  terrain: "Agent Terrain",
-  rh: "Agent RH",
-  com: "Communication",
-  encadrant: "Encadrant",
-};
 
 /** Map Jahia username → profile ID (for persona simulation via real login) */
 const USERNAME_TO_PROFILE: Record<string, ProfileId> = {
@@ -121,25 +112,14 @@ jahiaComponent(
         : (props["eui:defaultProfile"] ?? "terrain"));
 
     const persona = PERSONAS.find((p) => p.id === activeProfile) ?? PERSONAS[0];
-    const showSwitcher = props["eui:showPersonaSwitcher"] !== false;
-    // Use mainNode (the page) so the ?profile= param reloads the page, not the content node
-    const pageNode = mainNode ?? currentNode;
-    const pageUrl = pageNode?.getPath() ? `${request.getContextPath()}/cms/render/live/fr${pageNode.getPath()}.html` : "";
+    // pageNode / pageUrl no longer needed (switcher removed)
+    void (mainNode ?? currentNode);
 
     const hour = new Date().getHours();
     const greeting = hour < 12 ? "Bonjour" : hour < 18 ? "Bon après-midi" : "Bonsoir";
 
     return (
       <>
-        {showSwitcher && (
-          <AddResources
-            type="javascript"
-            resources={buildModuleFileUrl(
-              "dist/client/components/ProfileDashboard/switcher.client.ts.js",
-            )}
-          />
-        )}
-
         <div className={classes.dashboard} data-profile={activeProfile}>
           {/* Header banner */}
           <div className={classes.header}>
@@ -159,33 +139,6 @@ jahiaComponent(
                   </div>
                 </div>
               </div>
-
-              {showSwitcher && (
-                <div className={classes.switcherWrapper}>
-                  <span className={classes.switcherLabel}>Changer de profil :</span>
-                  <div className={classes.profileTabs} role="tablist">
-                    {PERSONAS.map((p) => (
-                      <a
-                        key={p.id}
-                        href={`${pageUrl}?profile=${p.id}`}
-                        role="tab"
-                        aria-selected={p.id === activeProfile}
-                        className={`${classes.profileTab} ${p.id === activeProfile ? classes.profileTabActive : ""}`}
-                        title={`${p.name} — ${p.role}`}
-                        data-profile-tab={p.id}
-                      >
-                        <span
-                          className={classes.tabAvatar}
-                          style={{ background: p.color }}
-                        >
-                          {p.initials}
-                        </span>
-                        <span className={classes.tabLabel}>{PROFILE_LABELS[p.id]}</span>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 
